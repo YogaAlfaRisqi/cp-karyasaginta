@@ -3,14 +3,18 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\PengalamanController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\TentangController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/produk', [ProdukController::class, 'index']);
-Route::get('/tentangkami', [TentangController::class, 'index']);
-Route::get('/layanan', [LayananController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('landingpage');
+Route::get('produk', [ProdukController::class, 'index'])->name('produk');
+Route::get('tentangkami', [TentangController::class, 'index'])->name('tentangkami');
+Route::get('layanan', [LayananController::class, 'index'])->name('layanan');
+Route::get('pengalaman', [PengalamanController::class, 'index'])->name('pengalaman');
+Route::get('/experiences/{slug}', [PengalamanController::class, 'show'])->name('experiences.show');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

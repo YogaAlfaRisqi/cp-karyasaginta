@@ -1,38 +1,102 @@
 <!-- Navbar -->
 <nav x-data="{ open: false }" class="backdrop-blur-md bg-white/50 text-black fixed top-0 left-0 w-full z-50 px-4">
     <div class="max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
-        <div class="flex items-center justify-between h-20">
-            <div class="flex items-center space-x-12">
+        <div class="flex items-center justify-between h-25">
+            <div class="flex items-center space-x-5 md:space-x-4">
                 <!-- Logo -->
                 <div class="flex flex-col items-center mr-4 pb-2">
-                    <img src="images/Logo.png" alt="Logo CV Karya Saginta" class="w-15 h-15 mb-0 object-contain" />
+                    <img src="images/Logo.png" alt="Logo CV Karya Saginta" class="w-15 h-15 mb-0 object-contain" loading="eager"
+                        fetchpriority="high" />
                     <a href="/" class="text-sm font-poppins font-medium leading-tight text-center text-green-700">
                         CV Karya Saginta
                     </a>
                 </div>
 
-                <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8 font-poppins font-normal">
-                    <a href="/" class="relative text-green-700 font-medium after:absolute after:bottom-0 after:left-0 after:w-full after:h-[3px] after:bg-green-700">
+                <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8 md:space-x-5 font-poppins font-normal">
+                    <!-- Beranda -->
+                    <a href="{{ route('landingpage') }}"
+                        class="relative {{ request()->routeIs('landingpage') ? 'text-green-700 font-semibold' : 'text-gray-700 hover:text-green-700' }} group transition">
                         Beranda
+                        <span class="absolute left-0 -bottom-1 w-full h-[2px] bg-green-700 
+                        {{ request()->routeIs('landingpage') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}
+                        transition-transform duration-500 ease-in-out origin-left"></span>
                     </a>
-                    <a href="tentang-kami\tentangKami" class="hover:text-green-700 transition">Tentang Kami</a>
-                    <a href="produk" class="hover:text-green-700 transition">Lihat Produk</a>
-                    <a href="layanan" class="hover:text-green-700 transition">Lihat Layanan</a>
-                    <a href="sertifikasi" class="hover:text-green-700 transition">Sertifikasi</a>
+
+                    <!-- Tentang Kami -->
+                    <a href="{{ route('tentangkami') }}"
+                        class="relative {{ request()->routeIs('tentangkami') ? 'text-green-700 font-semibold' : 'text-gray-700 hover:text-green-700' }} group transition">
+                        Tentang Kami
+                        <span class="absolute left-0 -bottom-1 w-full h-[2px] bg-green-700 
+                            {{ request()->routeIs('tentangkami') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}
+                            transition-transform duration-500 ease-in-out origin-left"></span>
+                    </a>
+
+                    <!-- Pengalaman Projek -->
+                    <a href="{{ route('pengalaman') }}"
+                        class="relative {{ request()->routeIs('pengalaman') ? 'text-green-700 font-semibold' : 'text-gray-700 hover:text-green-700' }} group transition">
+                        Pengalaman Projek
+                        <span class="absolute left-0 -bottom-1 w-full h-[2px] bg-green-700 
+                        {{ request()->routeIs('pengalaman') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}
+                        transition-transform duration-500 ease-in-out origin-left"></span>
+                    </a>
+
+                    <!-- Lihat Produk -->
+                    <a href="{{ route('produk') }}"
+                        class="relative {{ request()->routeIs('produk') ? 'text-green-700 font-semibold' : 'text-gray-700 hover:text-green-700' }} group transition">
+                        Lihat Produk
+                        <span class="absolute left-0 -bottom-1 w-full h-[2px] bg-green-700 
+                        {{ request()->routeIs('produk') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}
+                        transition-transform duration-500 ease-in-out origin-left"></span>
+                    </a>
+
+                    <!-- Lihat Layanan -->
+                    <a href="{{ route('layanan') }}"
+                        class="relative {{ request()->routeIs('layanan') ? 'text-green-700 font-semibold' : 'text-gray-700 hover:text-green-700' }} group transition">
+                        Lihat Layanan
+                        <span class="absolute left-0 -bottom-1 w-full h-[2px] bg-green-700 
+                        {{ request()->routeIs('layanan') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}
+                        transition-transform duration-500 ease-in-out origin-left"></span>
+                    </a>
                 </div>
 
 
             </div>
 
-
             <div class="flex items-center space-x-4 ml-auto">
-                <div class="hidden md:flex flex-col items-end">
-                    <a href="https://wa.me/628126527016" target="_blank"
-                        class="text-sm text-green-700 hover:underline">
-                        +62 812 6527 016
-                    </a>
-                    <h6 class="font-poppins text-xs">Kontak Bisnis</h6>
+                <!-- Kontak + Dropdown Jam -->
+                <div class="hidden md:flex items-center space-x-3 relative">
+                    <!-- Nomor Kontak -->
+                    <div class="text-right">
+                        <a href="https://wa.me/628126527016" target="_blank"
+                            class="text-sm text-green-700 font-semibold hover:underline">
+                            +62 812 6527 016
+                        </a>
+                        <div class="text-xs text-gray-600 font-poppins">Kontak Bisnis</div>
+                    </div>
+
+                    <!-- Dropdown Icon -->
+                    <div class="relative group">
+                        <!-- Icon Jam (Heroicons Clock) -->
+                        <button class="text-gray-600 hover:text-green-700 focus:outline-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </button>
+
+                        <!-- Dropdown Content -->
+                        <div class="absolute right-0 mt-2 w-48 bg-white border rounded-md shadow-md opacity-0 group-hover:opacity-100 group-hover:translate-y-0 translate-y-2 transition-all duration-200 z-50 pointer-events-none group-hover:pointer-events-auto">
+                            <div class="p-3 text-sm text-gray-700">
+                                <strong>Jam Operasional:</strong><br>
+                                Senin – Jumat<br>
+                                09.00 – 16.00 WIB
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+
 
                 <!-- Hamburger (Mobile Only) -->
                 <button @click="open = !open" class="md:hidden focus:outline-none">
@@ -58,10 +122,10 @@
         x-transition:leave-end="opacity-0 transform -translate-y-4"
         class="md:hidden w-full px-4 pt-4 pb-6 space-y-3 font-poppins text-sm">
         <a href="/" class="block text-gray-700 hover:bg-green-700 hover:text-white transition p-2 rounded-sm">Beranda</a>
-        <a href="#tentang" class="block text-gray-700 hover:bg-green-700 hover:text-white transition p-2 rounded-sm">Tentang</a>
-        <a href="#produk" class="block text-gray-700 hover:bg-green-700 hover:text-white transition p-2 rounded-sm">Produk</a>
-        <a href="#layanan" class="block text-gray-700 hover:bg-green-700 hover:text-white transition p-2 rounded-sm">Layanan</a>
-        <a href="#sertifikasi" class="block text-gray-700 hover:bg-green-700 hover:text-white transition p-2 rounded-sm">Sertifikasi</a>
+        <a href="{{route('tentangkami')}}" class="block text-gray-700 hover:bg-green-700 hover:text-white transition p-2 rounded-sm">Tentang</a>
+        <a href="{{route('produk')}}" class="block text-gray-700 hover:bg-green-700 hover:text-white transition p-2 rounded-sm">Produk</a>
+        <a href="{{route('layanan')}}" class="block text-gray-700 hover:bg-green-700 hover:text-white transition p-2 rounded-sm">Layanan</a>
+
         <div class="border-t">
             <div class="mt-2 flex flex-row space-x-6">
                 <a href="https://wa.me/628126527016" class="block text-green-700 mt-2 hover:underline">+62 812 6527 016</a>

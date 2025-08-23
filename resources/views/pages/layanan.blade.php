@@ -2,6 +2,7 @@
 
 @section('content')
 <!-- Header -->
+<div class="bg-gradient-to-r from-green-50 via-white to-green-50">
 <section class="bg-gradient-to-r from-green-50 via-white to-green-50 py-16 font-poppins text-gray-800">
     <div class="max-w-6xl mx-auto px-4">
         <div class="text-center mb-12">
@@ -14,7 +15,7 @@
 </section>
 
 <!-- Layanan Cards -->
-<section class="bg-white pb-20 font-poppins">
+<section class="bg-gradient-to-r from-green-50 via-white to-green-50 pb-20 font-poppins">
     <div class="max-w-6xl mx-auto px-4">
         <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             @php
@@ -38,14 +39,6 @@
                 <p class="text-sm text-gray-600">{{ $item['desc'] }}</p>
             </div>
             @endforeach
-        </div>
-
-        <!-- CTA -->
-        <div class="text-center mt-16">
-            <a href="https://wa.me/628126527016" target="_blank"
-                class="inline-block bg-green-600 hover:bg-green-700 text-white font-semibold px-6 py-3 rounded-full transition">
-                💬 Hubungi Kami di WhatsApp
-            </a>
         </div>
     </div>
 </section>
@@ -91,6 +84,8 @@
     </form>
   </div>
 </section>
+
+</div>
 
 
 

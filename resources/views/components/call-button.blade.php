@@ -1,5 +1,5 @@
 <!-- Floating WhatsApp Button with Tooltip -->
-<div class="fixed bottom-8 right-15 z-50 group">
+<div class="fixed bottom-8 right-5 md:right-15 z-50 group">
     <!-- Tombol WA -->
     <a href="https://wa.me/ 08126527016" target="_blank"
        class="bg-green-500 hover:bg-green-600 text-white p-3 rounded-full shadow-lg flex items-center justify-center transition transform hover:scale-110"
