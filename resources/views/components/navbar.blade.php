@@ -1,26 +1,28 @@
-<!-- Navbar -->
-<nav x-data="{ open: false }" class="backdrop-blur-md bg-white/50 text-black fixed top-0 left-0 w-full z-50 px-4">
-    <div class="max-w-7xl px-4 sm:px-6 lg:px-8 mx-auto">
+<nav
+    class=" backdrop-blur-md bg-white/50 text-black transition-all duration-500 ease-in-out"
+    :class="scrolled ? 'shadow-lg' : ''">
+    <!-- isi navbar kamu -->
+    <div class="max-w-6xl lg:max-w-7xl xl:max-w-7xl px-4 sm:px-6 lg:px-4 mx-auto">
         <div class="flex items-center justify-between h-25">
             <div class="flex items-center space-x-5 md:space-x-4">
                 <!-- Logo -->
                 <div class="flex flex-col items-center mr-4 pb-2">
-                    <img src="images/Logo.png" alt="Logo CV Karya Saginta" class="w-15 h-15 mb-0 object-contain" loading="eager"
-                        fetchpriority="high" />
-                    <a href="/" class="text-sm font-poppins font-medium leading-tight text-center text-green-700">
-                        CV Karya Saginta
+                    <a href="/" class="flex flex-col items-center">
+                        <img src="images/Logo.webp"
+     alt="Logo CV Karya Saginta"
+     class="w-[60px] h-[60px] mb-0 object-contain cursor-pointer"
+     width="60" height="60"
+     loading="eager"
+     fetchpriority="high" />
+
+                        <span class="text-sm font-poppins font-medium leading-tight text-center text-green-700">
+                            CV Karya Saginta
+                        </span>
                     </a>
                 </div>
 
+
                 <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8 md:space-x-5 font-poppins font-normal">
-                    <!-- Beranda -->
-                    <a href="{{ route('landingpage') }}"
-                        class="relative {{ request()->routeIs('landingpage') ? 'text-green-700 font-semibold' : 'text-gray-700 hover:text-green-700' }} group transition">
-                        Beranda
-                        <span class="absolute left-0 -bottom-1 w-full h-[2px] bg-green-700 
-                        {{ request()->routeIs('landingpage') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}
-                        transition-transform duration-500 ease-in-out origin-left"></span>
-                    </a>
 
                     <!-- Tentang Kami -->
                     <a href="{{ route('tentangkami') }}"
@@ -31,19 +33,10 @@
                             transition-transform duration-500 ease-in-out origin-left"></span>
                     </a>
 
-                    <!-- Pengalaman Projek -->
-                    <a href="{{ route('pengalaman') }}"
-                        class="relative {{ request()->routeIs('pengalaman') ? 'text-green-700 font-semibold' : 'text-gray-700 hover:text-green-700' }} group transition">
-                        Pengalaman Projek
-                        <span class="absolute left-0 -bottom-1 w-full h-[2px] bg-green-700 
-                        {{ request()->routeIs('pengalaman') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}
-                        transition-transform duration-500 ease-in-out origin-left"></span>
-                    </a>
-
                     <!-- Lihat Produk -->
                     <a href="{{ route('produk') }}"
                         class="relative {{ request()->routeIs('produk') ? 'text-green-700 font-semibold' : 'text-gray-700 hover:text-green-700' }} group transition">
-                        Lihat Produk
+                        Produk
                         <span class="absolute left-0 -bottom-1 w-full h-[2px] bg-green-700 
                         {{ request()->routeIs('produk') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}
                         transition-transform duration-500 ease-in-out origin-left"></span>
@@ -52,9 +45,28 @@
                     <!-- Lihat Layanan -->
                     <a href="{{ route('layanan') }}"
                         class="relative {{ request()->routeIs('layanan') ? 'text-green-700 font-semibold' : 'text-gray-700 hover:text-green-700' }} group transition">
-                        Lihat Layanan
+                        Layanan
                         <span class="absolute left-0 -bottom-1 w-full h-[2px] bg-green-700 
                         {{ request()->routeIs('layanan') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}
+                        transition-transform duration-500 ease-in-out origin-left"></span>
+                    </a>
+
+                    
+                    <!-- Pengalaman Projek -->
+                    <a href="{{ route('pengalaman') }}"
+                        class="relative {{ request()->routeIs('pengalaman') ? 'text-green-700 font-semibold' : 'text-gray-700 hover:text-green-700' }} group transition">
+                        Pengalaman
+                        <span class="absolute left-0 -bottom-1 w-full h-[2px] bg-green-700 
+                        {{ request()->routeIs('pengalaman') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}
+                        transition-transform duration-500 ease-in-out origin-left"></span>
+                    </a>
+
+                    <!-- Pengalaman Projek -->
+                    <a href="{{ route('pengalaman') }}"
+                        class="relative {{ request()->routeIs('pengalaman') ? 'text-green-700 font-semibold' : 'text-gray-700 hover:text-green-700' }} group transition">
+                        Kontak
+                        <span class="absolute left-0 -bottom-1 w-full h-[2px] bg-green-700 
+                        {{ request()->routeIs('pengalaman') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}
                         transition-transform duration-500 ease-in-out origin-left"></span>
                     </a>
                 </div>

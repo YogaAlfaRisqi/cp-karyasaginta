@@ -1,7 +1,7 @@
 <section class="px-2 py-20 bg-gradient-to-b from-white via-white to-green-50" data-aos="fade-up" data-aos-duration="1000">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
 
-        <!-- Tabs -->
+
         <div class="flex space-x-4 mb-6">
             <button class="px-4 py-2 rounded-2xl font-semibold bg-green-600 text-white">
                 Artikel
@@ -11,7 +11,7 @@
             </button>
         </div>
 
-        <!-- Tambahkan Alpine.js untuk interaksi -->
+
         <div x-data="{ scrollPos: 0 }" class="relative">
             <!-- Slider Controls -->
             <div class="flex justify-end items-center mb-4 space-x-2">

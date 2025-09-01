@@ -4,7 +4,7 @@
         {{-- Judul --}}
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-green-900 leading-tight mb-4"
             data-aos="fade-up" data-aos-duration="1000">
-            Tumbuh Bersama <br /> Solusi dan Layanan <br />
+            Tumbuh Bersama Solusi dan Layanan <br />
             <span class="text-green-600">CV Karya Saginta</span>
         </h1>
 

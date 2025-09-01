@@ -1,5 +1,5 @@
-<section class="bg-white text-black py-12 px-6 font-poppins relative" data-aos="zoom-out-left" data-aos-duration="1000">
-    <div class="max-w-6xl mx-auto">
+<section class="bg-white text-black py-12 font-poppins relative" data-aos="zoom-out-left" data-aos-duration="1000">
+    <div class="max-w-6xl md:max-w-4xl lg:max-w-6xl mx-auto px-8">
         <!-- Header -->
         <h4 class="text-sm font-medium text-green-600 uppercase mb-2">Tentang Kami</h4>
         <div class="flex items-center space-x-3 mb-4">

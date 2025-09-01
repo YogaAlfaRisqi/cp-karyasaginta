@@ -51,6 +51,14 @@ class HomeController extends Controller
                 'image' => 'images/cv-karya saginta1.png',
                 'tags' => ['Agrikultur'],
             ],
+            [
+                'title' => 'Menuju Pertanian yang Efisien dan Berkelanjutan',
+                'author' => 'Admin Karya Saginta',
+                'date' => '2023-11-23',
+                'read_time' => 2,
+                'image' => 'images/cv-karya saginta1.png',
+                'tags' => ['Agrikultur'],
+            ],
 
         ];
 
