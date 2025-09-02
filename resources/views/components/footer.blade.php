@@ -1,48 +1,53 @@
 <footer class="bg-green-900 text-white py-12 font-poppins">
   <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
-      
-      <!-- Brand -->
-      <div class="space-y-4">
-        <h2 class="text-lg font-semibold">CV Karya Saginta</h2>
-        <p class="text-sm text-white/80 leading-relaxed">
-          Penyedia Bibit Unggul untuk Pertanian, Kehutanan, Perkebunan, dan Hortikultura.
-        </p>
-        <p class="text-sm text-white/80 leading-relaxed">
-          Jl. Jamin Ginting No. 70, Sumber Mufakat,<br>
-          Kabanjahe – Karo, Sumatera Utara
-        </p>
+
+      <div class="flex flex-col items-start gap-3">
+        <!-- Logo -->
+        <img src="/images/logo.png" alt="Logo CV Karya Saginta" class="w-25 h-25 object-contain">
+
+        <!-- Text -->
+        <div>
+          <h2 class="text-lg font-semibold">CV Karya Saginta</h2>
+          <p class="text-sm text-white/80 leading-relaxed">
+            Penyedia Bibit Unggul untuk Pertanian, Kehutanan, Perkebunan, dan Hortikultura.
+          </p>
+        </div>
       </div>
 
+
       <!-- Navigasi -->
-      <div>
-        <h3 class="text-base font-semibold mb-4">NAVIGASI</h3>
-        <ul class="space-y-2 text-sm text-white/80">
-          <li><a href="#tentang" class="hover:text-green-400 transition">Tentang</a></li>
-          <li><a href="#produk" class="hover:text-green-400 transition">Produk</a></li>
-          <li><a href="#layanan" class="hover:text-green-400 transition">Layanan</a></li>
-          <li><a href="#sertifikasi" class="hover:text-green-400 transition">Sertifikasi</a></li>
-          <li><a href="#pengalaman" class="hover:text-green-400 transition">Pengalaman</a></li>
+      <div class="md:ml-15">
+        <h3 class="text-base font-semibold mb-4 ">Navigasi</h3>
+        <ul class="space-y-2 text-sm text-white/80 divide-y divide-white/20">
+          <li><a href="#tentang" class="block py-2 hover:text-green-400 transition-colors">Tentang</a></li>
+          <li><a href="#produk" class="block py-2 hover:text-green-400 transition-colors">Produk</a></li>
+          <li><a href="#layanan" class="block py-2 hover:text-green-400 transition-colors">Layanan</a></li>
+          <li><a href="#sertifikasi" class="block py-2 hover:text-green-400 transition-colors">Sertifikasi</a></li>
+          <li><a href="#pengalaman" class="block py-2 hover:text-green-400 transition-colors">Pengalaman</a></li>
         </ul>
+
       </div>
 
       <!-- Pembelian -->
       <div>
-        <h3 class="text-base font-semibold mb-4">PEMBELIAN</h3>
-        <span>Untuk informasi pembelian, hubungi kami melali sosial media kami atau kontak di bawah ini!</span>
-        <div class="space-y-4">
+        <h3 class="text-base font-semibold mb-4">Pembelian</h3>
+        <p class="text-sm text-white/80 mb-4">
+          Untuk informasi pembelian, hubungi kami melalui sosial media atau kontak di bawah ini:
+        </p>
+        <div class="space-y-4 divide-y divide-white/20 mt-2">
           <!-- Telepon -->
           <div class="flex items-center space-x-3">
-            <div class="bg-green-500 p-2 rounded-full">
-              <i class="fa fa-phone text-white"></i>
-            </div>
+            <span class="bg-green-500 p-2 rounded-full">
+              <i class="fa fa-phone text-white" aria-hidden="true"></i>
+            </span>
             <p class="text-sm">+62 812-3456-7890</p>
           </div>
           <!-- Email -->
           <div class="flex items-center space-x-3">
-            <div class="bg-blue-500 p-2 rounded-full">
-              <i class="fa fa-envelope text-white"></i>
-            </div>
+            <span class="bg-blue-500 p-2 rounded-full">
+              <i class="fa fa-envelope text-white" aria-hidden="true"></i>
+            </span>
             <p class="text-sm">info@karyasaginta.com</p>
           </div>
         </div>
@@ -50,35 +55,39 @@
 
       <!-- Lokasi & Sosial -->
       <div>
-        <h3 class="text-base font-semibold mb-4">LOKASI</h3>
-        <div class="space-y-2 text-sm text-white/80">
-          <p>WhatsApp: <a href="https://wa.me/6281388181416" class="hover:underline">+6281388181416</a></p>
-          <p>WhatsApp: <a href="https://wa.me/6285372081131" class="hover:underline">+6285372081131</a></p>
+        <h3 class="text-base font-semibold mb-4">Lokasi</h3>
+        <p class="text-sm text-white/80 leading-relaxed mb-4">
+          Jl. Jamin Ginting No. 70, Sumber Mufakat,<br>
+          Kabanjahe – Karo, Sumatera Utara
+        </p>
+        <div class="space-y-2 text-sm text-white/80  divide-y divide-white/20">
+          <p>WhatsApp: <a href="https://wa.me/6281388181416" class="hover:underline">+62 813-8818-1416</a></p>
+          <p>WhatsApp: <a href="https://wa.me/6285372081131" class="hover:underline">+62 853-7208-1131</a></p>
           <p>Email: <a href="mailto:karyasaginta@gmail.com" class="hover:underline">karyasaginta@gmail.com</a></p>
         </div>
 
-        <h3 class="text-base font-semibold mt-6 mb-3">SOCIAL MEDIA</h3>
-        <div class="flex space-x-4">
-          <a href="https://wa.me/628126527016" target="_blank" class="hover:text-green-400" title="WhatsApp">
-            <i class="fab fa-whatsapp text-xl"></i>
+        <h3 class="text-base font-semibold mt-6 mb-3">Social Media</h3>
+        <div class="flex space-x-4 divide-y divide-white/20">
+          <a href="https://wa.me/628126527016" target="_blank" rel="noopener" class="hover:text-green-400" title="WhatsApp">
+            <i class="fab fa-whatsapp text-xl" aria-hidden="true"></i>
           </a>
           <a href="mailto:karyasaginta@gmail.com" class="hover:text-green-400" title="Email">
-            <i class="fas fa-envelope text-xl"></i>
+            <i class="fas fa-envelope text-xl" aria-hidden="true"></i>
           </a>
-          <a href="https://instagram.com/cvkaryasaginta" target="_blank" class="hover:text-green-400" title="Instagram">
-            <i class="fab fa-instagram text-xl"></i>
+          <a href="https://instagram.com/cvkaryasaginta" target="_blank" rel="noopener" class="hover:text-green-400" title="Instagram">
+            <i class="fab fa-instagram text-xl" aria-hidden="true"></i>
           </a>
-          <a href="https://www.tiktok.com/@cvkaryasaginta" target="_blank" class="hover:text-green-400" title="TikTok">
-            <i class="fab fa-tiktok text-xl"></i>
+          <a href="https://www.tiktok.com/@cvkaryasaginta" target="_blank" rel="noopener" class="hover:text-green-400" title="TikTok">
+            <i class="fab fa-tiktok text-xl" aria-hidden="true"></i>
           </a>
         </div>
       </div>
     </div>
 
-    <!-- Garis & Copyright -->
+    <!-- Divider & Copyright -->
     <hr class="my-10 border-white/20">
     <div class="text-center text-xs text-white/70">
-      &copy; {{ date('Y') }} CV Karya Saginta.
+      &copy; {{ date('Y') }} CV Karya Saginta. All rights reserved.
     </div>
   </div>
 </footer>

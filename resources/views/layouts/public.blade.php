@@ -34,7 +34,7 @@
         class="fixed top-0 left-0 w-full z-40 transition-all duration-500 ease-in-out"
         x-show="!loading"
         x-transition.opacity.duration.700ms>
-        <div class="overflow-hidden transition-all duration-500 ease-in-out bg-white"
+        <div class="overflow-visible transition-all duration-500 ease-in-out bg-white"
             :class="scrolled ? 'max-h-40 shadow-lg' : 'max-h-50'">
             <!-- Topbar -->
             @include('components.topbar')

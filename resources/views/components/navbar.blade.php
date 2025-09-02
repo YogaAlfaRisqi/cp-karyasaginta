@@ -8,7 +8,7 @@
                 <!-- Logo -->
                 <div class="flex flex-col items-center mr-4 pb-2">
                     <a href="/" class="flex flex-col items-center">
-                        <img src="images/Logo.webp"
+                        <img src="{{ asset('images/Logo.webp') }}"
                             alt="Logo CV Karya Saginta"
                             class="w-[60px] h-[60px] mb-0 object-contain cursor-pointer"
                             width="60" height="60"
@@ -24,14 +24,44 @@
 
                 <div class="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-8 md:space-x-5 font-poppins font-normal">
 
-                    <!-- Tentang Kami -->
-                    <a href="{{ route('tentangkami') }}"
-                        class="relative {{ request()->routeIs('tentangkami') ? 'text-green-700 font-semibold' : 'text-gray-700 hover:text-green-700' }} group transition">
-                        Tentang Kami
-                        <span class="absolute left-0 -bottom-1 w-full h-[2px] bg-green-700 
-                            {{ request()->routeIs('tentangkami') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}
-                            transition-transform duration-500 ease-in-out origin-left"></span>
-                    </a>
+                    <!-- Dropdown Tentang Kami -->
+                    <div class="relative group">
+                        <a href="{{ route('tentangkami.index') }}"
+                            class="flex items-center gap-1 {{ request()->routeIs('tentangkami.*') ? 'text-green-700 font-semibold' : 'text-gray-700 hover:text-green-700' }} transition">
+                            Tentang Kami
+                            <!-- Icon panah kecil -->
+                            <svg class="w-4 h-4 transform group-hover:rotate-180 transition-transform" fill="none" stroke="currentColor" stroke-width="2"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </a>
+
+                        <!-- Dropdown Menu -->
+                        <div class="absolute left-0 mt-2 w-48 bg-white rounded-lg shadow-lg opacity-0 scale-95 group-hover:opacity-100 group-hover:scale-100 transform transition duration-200 z-50">
+                            <ul class="py-2 text-sm text-gray-700">
+                                <li>
+                                    <a href="{{ route('tentangkami.index') }}"
+                                        class="block px-4 py-2 hover:bg-green-50 hover:text-green-700 {{ request()->routeIs('tentangkami.index') ? 'text-green-700 font-medium' : '' }}">
+                                        Tentang
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('tentangkami.visiMisi') }}"
+                                        class="block px-4 py-2 hover:bg-green-50 hover:text-green-700 {{ request()->routeIs('tentangkami.visiMisi') ? 'text-green-700 font-medium' : '' }}">
+                                        Visi, Misi & Nilai
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('tentangkami.gallery') }}"
+                                        class="block px-4 py-2 hover:bg-green-50 hover:text-green-700 {{ request()->routeIs('tentangkami.gallery') ? 'text-green-700 font-medium' : '' }}">
+                                        Galeri Kegiatan
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+
 
                     <!-- Lihat Produk -->
                     <a href="{{ route('produk') }}"
@@ -61,17 +91,15 @@
                         transition-transform duration-500 ease-in-out origin-left"></span>
                     </a>
 
-                    <!-- Pengalaman Projek -->
-                    <a href="{{ route('pengalaman') }}"
-                        class="relative {{ request()->routeIs('pengalaman') ? 'text-green-700 font-semibold' : 'text-gray-700 hover:text-green-700' }} group transition">
+
+                    <a href="{{ route('contact') }}"
+                        class="relative {{ request()->routeIs('contact') ? 'text-green-700 font-semibold' : 'text-gray-700 hover:text-green-700' }} group transition">
                         Kontak
                         <span class="absolute left-0 -bottom-1 w-full h-[2px] bg-green-700 
-                        {{ request()->routeIs('pengalaman') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}
+                        {{ request()->routeIs('contact') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}
                         transition-transform duration-500 ease-in-out origin-left"></span>
                     </a>
                 </div>
-
-
             </div>
 
             <div class="flex items-center space-x-4 ml-auto">
@@ -134,7 +162,7 @@
         x-transition:leave-end="opacity-0 transform -translate-y-4"
         class="md:hidden w-full px-4 pt-4 pb-6 space-y-3 font-poppins text-sm">
         <a href="/" class="block text-gray-700 hover:bg-green-700 hover:text-white transition p-2 rounded-sm">Beranda</a>
-        <a href="{{route('tentangkami')}}" class="block text-gray-700 hover:bg-green-700 hover:text-white transition p-2 rounded-sm">Tentang</a>
+        <a href="{{route('tentangkami.index')}}" class="block text-gray-700 hover:bg-green-700 hover:text-white transition p-2 rounded-sm">Tentang</a>
         <a href="{{route('produk')}}" class="block text-gray-700 hover:bg-green-700 hover:text-white transition p-2 rounded-sm">Produk</a>
         <a href="{{route('layanan')}}" class="block text-gray-700 hover:bg-green-700 hover:text-white transition p-2 rounded-sm">Layanan</a>
 

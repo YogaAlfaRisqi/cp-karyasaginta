@@ -1,0 +1,106 @@
+@extends('layouts.public')
+
+@section('content')
+<x-banner-section
+    title=""
+    subtitle=""
+    image="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80"
+    height="h-80 lg:h-[50vh]" />
+
+<!-- SECTION: Tentang CV -->
+<section class="bg-gradient-to-b from-white via-green-50 to-white text-gray-800 py-16 font-poppins">
+  <div class="max-w-6xl mx-auto px-4">
+
+    <div class="px-4 ">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+
+        <!-- Kolom Kiri: Teks -->
+        <div>
+          <!-- Subjudul dan Heading -->
+          <h4 class="text-sm text-green-600 uppercase mb-2">Tentang Kami</h4>
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="text-3xl">🌱</div>
+            <h2 class="text-3xl sm:text-4xl font-bold text-green-800">CV Karya Saginta</h2>
+          </div>
+
+          <!-- Deskripsi Utama -->
+          <p class="text-gray-700 text-base leading-relaxed mb-6">
+            CV Karya Saginta adalah perusahaan yang bergerak dalam pengadaan bibit unggul untuk kebutuhan pertanian, kehutanan, hortikultura, dan proyek reboisasi. Berbekal pengalaman lapangan dan sertifikasi resmi dari instansi terkait, kami hadir memberikan solusi terbaik bagi sektor hijau Indonesia.
+          </p>
+        </div>
+
+        <!-- Kolom Kanan: Gambar -->
+        <div class="w-full">
+          <img src="/images/bg.jpeg" alt="Tentang Kami CV Karya Saginta"
+            class="w-full h-100 rounded-xl shadow-lg object-cover">
+        </div>
+
+      </div>
+    </div>
+  
+  </div>
+</section>
+
+
+<!-- SECTION: Rating & Testimoni -->
+<section class="bg-gradient-to-r from-green-50 to-white py-16 text-gray-800 font-poppins">
+  <div class="max-w-6xl mx-auto px-4">
+    <div class="text-center mb-10">
+      <h3 class="text-2xl font-bold text-green-800 mb-2">Apa Kata Mereka?</h3>
+      <p class="text-gray-600 text-sm">Ulasan pelanggan dan mitra kami yang puas.</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="bg-white border rounded-xl p-6 shadow hover:shadow-md transition">
+        <p class="text-gray-600 italic mb-3">"Bibitnya sangat sehat dan pengirimannya cepat. Terpercaya!"</p>
+        <div class="text-sm font-semibold text-green-700">Ibu Sari - Petani Hortikultura</div>
+      </div>
+      <div class="bg-white border rounded-xl p-6 shadow hover:shadow-md transition">
+        <p class="text-gray-600 italic mb-3">"Kami bermitra dalam program CSR. Layanan profesional dan cepat."</p>
+        <div class="text-sm font-semibold text-green-700">PT Hijau Lestari - CSR Manager</div>
+      </div>
+      <div class="bg-white border rounded-xl p-6 shadow hover:shadow-md transition">
+        <p class="text-gray-600 italic mb-3">"Kualitas bibit dan layanan konsultasinya sangat membantu proyek reboisasi kami."</p>
+        <div class="text-sm font-semibold text-green-700">Bpk. Andi - Dinas Kehutanan</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-8 mb-20">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Judul -->
+    <div class="text-center mb-12">
+      <h4 class="text-sm text-green-600 uppercase mb-2">Klien Kami</h4>
+      <h2 class="text-3xl sm:text-4xl font-bold text-green-800">Dipercaya Oleh</h2>
+      <p class="mt-2 text-gray-600 text-base">Kami telah bekerja sama dengan berbagai pihak dari instansi pemerintah, swasta, hingga komunitas pertanian.</p>
+    </div>
+
+    <!-- Logo Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-items-center">
+      <!-- Logo 1 -->
+      <div class="grayscale hover:grayscale-0 transition duration-300">
+        <img src="/images/client/bg.jpeg" alt="Client 1" class="h-12 object-contain">
+      </div>
+      <!-- Logo 2 -->
+      <div class="grayscale hover:grayscale-0 transition duration-300">
+        <img src="/images/client/bg.jpeg" alt="Client 2" class="h-12 object-contain">
+      </div>
+      <!-- Logo 3 -->
+      <div class="grayscale hover:grayscale-0 transition duration-300">
+        <img src="/images/client/bg.jpeg" alt="Client 3" class="h-12 object-contain">
+      </div>
+      <!-- Logo 4 -->
+      <div class="grayscale hover:grayscale-0 transition duration-300">
+        <img src="/images/client/bg.jpeg" alt="Client 4" class="h-12 object-contain">
+      </div>
+      <!-- Logo 5 -->
+      <div class="grayscale hover:grayscale-0 transition duration-300">
+        <img src="/images/client/bg.jpeg" alt="Client 5" class="h-12 object-contain">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+@endsection

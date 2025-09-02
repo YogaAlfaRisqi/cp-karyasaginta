@@ -15,7 +15,7 @@
             </div>
         </div>
 
-        <div class="bg-gradient-to-r from-green-50 via-white to-green-50 rounded-2xl px-10 mx-100 py-4 shadow-sm mb-10">
+        <div class="bg-gradient-to-r from-green-50 via-white to-green-50 rounded-2xl px-10 mx-2 lg:mx-20 xl:100 py-4 shadow-sm mb-10">
             <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                 <!-- Judul -->
                 <div>
@@ -28,18 +28,22 @@
 
                     <!-- Filter -->
                     <div class="relative w-full md:w-48">
-                        <select class="w-full py-2 pl-4 pr-10 rounded-2xl border border-gray-300 bg-white text-sm focus:ring-2 focus:ring-green-400 focus:outline-none shadow-sm">
+                        <select
+                            class="w-full py-2 pl-4 pr-10 rounded-2xl border border-gray-300 bg-white text-sm focus:ring-2 focus:ring-green-400 focus:outline-none shadow-sm appearance-none">
                             <option value="">Semua Kategori</option>
                             <option value="buah">Bibit Buah</option>
                             <option value="kayu">Bibit Kayu</option>
                             <option value="hortikultura">Hortikultura</option>
                             <option value="perkebunan">Perkebunan</option>
                         </select>
-                        <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2"
-                            viewBox="0 0 24 24">
+
+                        <!-- Custom arrow -->
+                        <svg class="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400 pointer-events-none"
+                            fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
                         </svg>
                     </div>
+
 
                     <!-- Search -->
                     <div class="relative w-full md:w-64">
