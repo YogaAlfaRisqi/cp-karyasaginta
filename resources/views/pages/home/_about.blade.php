@@ -1,14 +1,15 @@
-<section class="bg-white text-black py-12 font-poppins relative" data-aos="zoom-out-left" data-aos-duration="1000">
-    <div class="max-w-6xl md:max-w-4xl lg:max-w-6xl mx-auto px-8">
+<section class="bg-white text-black py-6 font-poppins relative" data-aos="zoom-out-left" data-aos-duration="1000">
+    <div class="max-w-6xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto px-8">
+
         <!-- Header -->
-        <h4 class="text-sm font-medium text-green-600 uppercase mb-2">Tentang Kami</h4>
+        <!-- <h4 class="text-sm font-medium text-green-600 uppercase mb-2">Tentang Kami</h4> -->
         <div class="flex items-center space-x-3 mb-4">
             <img src="images/Logo.png" alt="Logo CV Karya Saginta" class="w-12 h-12 object-contain" />
             <h2 class="text-2xl sm:text-3xl font-bold">CV Karya Saginta</h2>
         </div>
 
         <!-- Deskripsi -->
-        <p class="text-black/70 max-w-3xl mb-6 leading-relaxed">
+        <p class="text-black/70 max-w-3xl lg:max-w-6xl mb-6 leading-relaxed">
             Merupakan perusahaan yang bergerak dalam bidang pengadaan bibit untuk pertanian, perkebunan, maupun kehutanan,
             serta pembibitan tanaman untuk program reboisasi termasuk tanaman hortikultura.
         </p>

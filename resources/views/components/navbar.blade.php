@@ -9,11 +9,11 @@
                 <div class="flex flex-col items-center mr-4 pb-2">
                     <a href="/" class="flex flex-col items-center">
                         <img src="images/Logo.webp"
-     alt="Logo CV Karya Saginta"
-     class="w-[60px] h-[60px] mb-0 object-contain cursor-pointer"
-     width="60" height="60"
-     loading="eager"
-     fetchpriority="high" />
+                            alt="Logo CV Karya Saginta"
+                            class="w-[60px] h-[60px] mb-0 object-contain cursor-pointer"
+                            width="60" height="60"
+                            loading="eager"
+                            fetchpriority="high" />
 
                         <span class="text-sm font-poppins font-medium leading-tight text-center text-green-700">
                             CV Karya Saginta
@@ -51,7 +51,7 @@
                         transition-transform duration-500 ease-in-out origin-left"></span>
                     </a>
 
-                    
+
                     <!-- Pengalaman Projek -->
                     <a href="{{ route('pengalaman') }}"
                         class="relative {{ request()->routeIs('pengalaman') ? 'text-green-700 font-semibold' : 'text-gray-700 hover:text-green-700' }} group transition">
