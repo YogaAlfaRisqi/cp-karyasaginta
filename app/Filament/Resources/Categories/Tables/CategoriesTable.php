@@ -1,34 +1,23 @@
 <?php
 
-namespace App\Filament\Resources\Products\Tables;
+namespace App\Filament\Resources\Categories\Tables;
 
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
 use Filament\Actions\ForceDeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
-use Filament\Tables\Columns\ImageColumn;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Filters\TrashedFilter;
 use Filament\Tables\Table;
 
-class ProductsTable
+class CategoriesTable
 {
     public static function configure(Table $table): Table
     {
         return $table
             ->columns([
                 TextColumn::make('name')
-                    ->searchable(),
-                TextColumn::make('price')
-                    ->money()
-                    ->sortable(),
-                ImageColumn::make('image'),
-                TextColumn::make('admin_phone')
-                    ->searchable(),
-                TextColumn::make('category.name')
-                    ->label('Category')
-                    ->sortable()
                     ->searchable(),
                 TextColumn::make('creator.name')
                     ->label('Created By')
