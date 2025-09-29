@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Products\Schemas;
 
 use Filament\Forms\Components\FileUpload;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Textarea;
 use Filament\Schemas\Schema;
@@ -22,6 +23,13 @@ class ProductForm
                     ->prefix('$'),
                 FileUpload::make('image')
                     ->image(),
+                TextInput::make('admin_phone')
+                    ->tel(),
+                Select::make('category_id')
+                    ->label('Category')
+                    ->relationship('category', 'name') // otomatis ambil id -> name
+                    ->searchable()
+                    ->required(),
                 TextInput::make('created_by')
                     ->numeric(),
                 TextInput::make('updated_by')

@@ -4,17 +4,13 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
-class Product extends BaseModel
+class Category extends BaseModel
 {
     use HasFactory;
 
     protected $fillable = [
         'name',
         'description',
-        'price',
-        'image',
-        'admin_phone',
-        'category_id',
         'created_by',
         'updated_by',
     ];
@@ -29,8 +25,8 @@ class Product extends BaseModel
         return $this->belongsTo(User::class, 'updated_by');
     }
 
-    public function category()
+    public function products()
     {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->hasMany(Product::class, 'category_id');
     }
 }

@@ -11,21 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('products', function (Blueprint $table) {
+        Schema::create('categories', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name'); // nama kategori
             $table->text('description')->nullable();
-            $table->decimal('price', 15, 2)->nullable();
-            $table->string('image')->nullable();
-            $table->string('admin_phone')->nullable();
 
-            // Relasi ke category
-            $table->foreignId('category_id')
-                  ->nullable()
-                  ->constrained('categories')
-                  ->nullOnDelete();
-
-            // Relasi ke user (creator & updater)
+            // relasi ke user
             $table->foreignId('created_by')
                   ->nullable()
                   ->constrained('users')
@@ -46,6 +37,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('products');
+        Schema::dropIfExists('categories');
     }
 };
