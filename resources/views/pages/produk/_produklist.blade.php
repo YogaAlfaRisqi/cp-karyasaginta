@@ -2,17 +2,18 @@
     <div class="max-w-6xl mx-auto px-4 pb-10">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            @foreach ($produk as $item)
+            @foreach ($product as $item)
             <div class="bg-white rounded-xl shadow border border-gray-200 hover:shadow-lg transition overflow-hidden flex flex-col">
 
                 <div class="w-full h-56 bg-white flex justify-center items-center border-b">
-                    <img src="{{ asset('images/produk/' . $item['img']) }}" alt="{{ $item['title'] }}" class="object-cover w-full h-full transition-transform duration-500 hover:scale-105">
+                    <img src="{{ Storage::url($item->image) }}" alt="{{ $item->name }}"
+ class="object-cover w-full h-full transition-transform duration-500 hover:scale-105">
                 </div>
 
                 <div class="p-4 flex-1 flex flex-col justify-between">
                     <div>
-                        <h3 class="font-semibold text-md text-green-800">{{ $item['title'] }}</h3>
-                        <p class="text-sm text-gray-600 mt-1">{{ $item['desc'] }}</p>
+                        <h3 class="font-semibold text-md text-green-800">{{ $item->name}}</h3>
+                        <p class="text-sm text-gray-600 mt-1">{{ $item->description }}</p>
                     </div>
                     <div class="flex flex-row justify-between gap-2 mt-4">
                         <a href="#"
