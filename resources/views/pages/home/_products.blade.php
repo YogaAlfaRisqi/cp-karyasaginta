@@ -22,8 +22,11 @@
         <div class="w-full h-56 bg-gray-50">
           <img src="{{ asset('images/bibit/' . $item['img']) }}"
             alt="{{ $item['nama'] }}"
-            class="object-cover w-full h-full transition-transform duration-500 hover:scale-105" />
+            class="object-cover w-full h-full transition-transform duration-500 hover:scale-105"
+            loading="lazy"
+            decoding="async" />
         </div>
+
 
         <!-- Info Produk -->
         <div class="flex-1 flex flex-col p-4 text-center">

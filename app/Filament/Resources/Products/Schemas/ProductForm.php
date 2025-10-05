@@ -22,13 +22,16 @@ class ProductForm
                     ->numeric()
                     ->prefix('$'),
                 FileUpload::make('image')
-                    ->image(),
+                    ->image()
+                    ->directory('products')
+                    ->disk('public')
+                    ->visibility('public'),
                 TextInput::make('admin_phone')
                     ->tel(),
                 Select::make('category_id')
                     ->label('Category')
                     ->relationship('category', 'name') // otomatis ambil id -> name
-                    ->searchable()
+                    
                     ->required(),
                 TextInput::make('created_by')
                     ->numeric(),
