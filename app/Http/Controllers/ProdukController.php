@@ -8,8 +8,6 @@ use Illuminate\Http\Request;
 
 class ProdukController extends Controller
 {
-  public function index(Request $request)
-  {
 
     $filters = [
       'kategori' => $request->get('kategori'),
@@ -21,11 +19,13 @@ class ProdukController extends Controller
       ->filter($filters)
       ->paginate(12);
 
+
     $categories = Category::all();
 
     $wa = '628126527016';
     
     return view('pages.produk.produk', compact('product', 'categories', 'wa', 'filters'));
+
 
   }
 }
