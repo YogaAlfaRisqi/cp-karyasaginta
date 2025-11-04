@@ -13,6 +13,7 @@ class ProdukController extends Controller
       'kategori' => $request->get('kategori'),
       'search'   => $request->get('search'),
     ];
+
     $product = Product::with('category')
       ->orderBy('created_at', 'desc')
       ->filter($filters)
@@ -22,6 +23,7 @@ class ProdukController extends Controller
     $categories = Category::all();
 
     $wa = '628126527016';
+    
     return view('pages.produk.produk', compact('product', 'categories', 'wa', 'filters'));
 
 
