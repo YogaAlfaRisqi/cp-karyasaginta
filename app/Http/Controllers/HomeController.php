@@ -8,9 +8,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-
-
-
         $stats = [
             ['value' => '3+', 'label' => 'Tahun Pengalaman'],
             ['value' => '100+', 'label' => 'Klien Terlayani'],

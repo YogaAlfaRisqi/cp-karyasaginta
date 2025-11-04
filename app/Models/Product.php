@@ -33,4 +33,15 @@ class Product extends BaseModel
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
+
+    public function scopeFilter($query, array $filters)
+    {
+        return $query
+            ->when($filters['kategori'] ?? null, fn($q, $kategori) => 
+                $q->where('category_id', $kategori)
+            )
+            ->when($filters['search'] ?? null, fn($q, $search) => 
+                $q->where('title', 'like', "%{$search}%")
+            );
+    }
 }

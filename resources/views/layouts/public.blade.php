@@ -23,8 +23,11 @@
         class="fixed inset-0 flex items-center justify-center bg-white z-50">
         <div class="text-center animate-pulse">
             <!-- Logo perusahaan -->
-            <img src="{{ asset('images/Logo.webp') }}" alt="Logo CV Karya Saginta" class="w-28 h-28 mx-auto">
-            <h1 class="mt-4 text-xl font-bold text-gray-800">CV Karya Saginta</h1>
+            <img src="{{ asset('images/Logo.webp') }}" alt="Logo CV Karya Saginta" class="w-28 h-28 mx-auto" width="112"
+                height="112"
+                decoding="async"
+                fetchpriority="high>
+            <h1 class=" mt-4 text-xl font-bold text-gray-800">CV Karya Saginta</h1>
         </div>
     </div>
 

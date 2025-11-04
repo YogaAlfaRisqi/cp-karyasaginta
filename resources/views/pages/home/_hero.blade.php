@@ -24,7 +24,7 @@
                 Lihat Layanan
             </a>
         </div>
-        
+
     </div>
 
     <div class="w-full" data-aos="fade-up" data-aos-duration="1000">
@@ -35,8 +35,8 @@
                 width="1200" height="500"
                 class="w-full h-48 sm:h-64 md:h-80 lg:h-[450px] xl:h-[500px] 
                     object-cover md:object-contain rounded-none"
-                loading="eager"
-                fetchpriority="high" />
+                loading="lazy"
+                decoding="async" />
         </picture>
     </div>
 
