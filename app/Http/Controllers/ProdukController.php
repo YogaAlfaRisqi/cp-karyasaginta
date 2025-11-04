@@ -8,24 +8,20 @@ use Illuminate\Http\Request;
 
 class ProdukController extends Controller
 {
-
-    $filters = [
-      'kategori' => $request->get('kategori'),
-      'search'   => $request->get('search'),
-    ];
-
-    $product = Product::with('category')
-      ->orderBy('created_at', 'desc')
-      ->filter($filters)
-      ->paginate(12);
-
-
-    $categories = Category::all();
-
-    $wa = '628126527016';
     
-    return view('pages.produk.produk', compact('product', 'categories', 'wa', 'filters'));
+    public function index(Request $request)
+    {
+        $filters = $request->only(['kategori', 'search']);
+        $categories = Category::all();
+        $wa = $request->get('admin_phone');
 
+        $products = Product::with('category', 'creator', 'updater')
+            ->filter($request->only(['kategori', 'search']))
+            ->latest()
+            ->paginate(10)
+            ->withQueryString();
 
-  }
+        return view('pages.produk.produk', compact('products', 'categories', 'wa', 'filters'));
+    }
+
 }

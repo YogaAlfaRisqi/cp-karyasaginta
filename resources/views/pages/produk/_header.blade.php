@@ -32,9 +32,10 @@
                             class="w-full py-2 pl-4 pr-10 rounded-2xl border border-gray-300 bg-white text-sm focus:ring-2 focus:ring-green-400 focus:outline-none shadow-sm appearance-none">
                             <option value="">Semua Kategori</option>
                             @foreach($categories as $cat)
-                            <option value="{{ $cat->id }}" {{ $filters['kategori'] == $cat->id ? 'selected' : '' }}>
+                            <option value="{{ $cat->id }}" {{ ($filters['kategori'] ?? '') == $cat->id ? 'selected' : '' }}>
                                 {{ $cat->name }}
                             </option>
+
                             @endforeach
                         </select>
 

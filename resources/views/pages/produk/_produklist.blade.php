@@ -2,12 +2,12 @@
     <div class="max-w-6xl mx-auto px-4 pb-10">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            @foreach ($product as $item)
+            @forelse ($products as $item)
             <div class="bg-white rounded-xl shadow border border-gray-200 hover:shadow-lg transition overflow-hidden flex flex-col">
 
                 <div class="w-full h-56 bg-white flex justify-center items-center border-b">
                     <img src="{{ Storage::url($item->image) }}" alt="{{ $item->name }}"
- class="object-cover w-full h-full transition-transform duration-500 hover:scale-105">
+                        class="object-cover w-full h-full transition-transform duration-500 hover:scale-105">
                 </div>
 
                 <div class="p-4 flex-1 flex flex-col justify-between">
@@ -44,7 +44,25 @@
 
                 </div>
             </div>
-            @endforeach
+            @empty
+            <div class="flex flex-col items-center justify-center px-4 text-center bg-white">
+                <div class="flex items-center justify-center w-20 h-20 mb-6 rounded-full bg-gray-100">
+                    <svg xmlns="http://www.w3.org/2000/svg"
+                        class="w-10 h-10 text-gray-400"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 7.5l-9-4.5-9 4.5m18 0v9l-9 4.5m9-13.5l-9 4.5m0 0l-9-4.5m9 4.5v9m0-9l9-4.5m-9 4.5l-9-4.5" />
+                    </svg>
+                </div>
+                <h2 class="text-lg font-semibold text-gray-700 mb-1">Belum Ada Produk</h2>
+                <p class="text-sm text-gray-500 max-w-sm">
+                    Produk yang Anda cari belum tersedia saat ini. Silakan cek kembali nanti.
+                </p>
+            </div>
+            @endforelse
         </div>
     </div>
 </section>
