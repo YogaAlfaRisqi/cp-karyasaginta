@@ -2,18 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Client;
 use Illuminate\Http\Request;
 
-class TentangKamiController extends Controller{
-    public function tentang(){
-        return view('pages.tentang-kami.tentang');
+class TentangKamiController extends Controller
+{
+
+    public function tentang(Request $request)
+    {
+        $client =  Client::query()
+            ->latest()
+            ->paginate(10)
+            ->withQueryString();
+
+        return view('pages.tentang-kami.tentang', compact('client'));
     }
 
-     public function visiMisi(){
+    public function visiMisi()
+    {
         return view('pages.tentang-kami.visi-misi');
     }
 
-     public function gallery(){
+    public function gallery()
+    {
         return view('pages.tentang-kami.gallery');
     }
 }

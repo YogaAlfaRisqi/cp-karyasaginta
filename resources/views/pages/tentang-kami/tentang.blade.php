@@ -2,10 +2,10 @@
 
 @section('content')
 <x-banner-section
-    title=""
-    subtitle=""
-    image="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80"
-    height="h-80 lg:h-[50vh]" />
+  title=""
+  subtitle=""
+  image="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80"
+  height="h-80 lg:h-[50vh]" />
 
 <!-- SECTION: Tentang CV -->
 <section class="bg-gradient-to-b from-white via-green-50 to-white text-gray-800 py-16 font-poppins">
@@ -37,7 +37,7 @@
 
       </div>
     </div>
-  
+
   </div>
 </section>
 
@@ -77,28 +77,17 @@
     </div>
 
     <!-- Logo Grid -->
+    @forelse ($client as $item)
     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-items-center">
       <!-- Logo 1 -->
       <div class="grayscale hover:grayscale-0 transition duration-300">
-        <img src="/images/client/bg.jpeg" alt="Client 1" class="h-12 object-contain">
-      </div>
-      <!-- Logo 2 -->
-      <div class="grayscale hover:grayscale-0 transition duration-300">
-        <img src="/images/client/bg.jpeg" alt="Client 2" class="h-12 object-contain">
-      </div>
-      <!-- Logo 3 -->
-      <div class="grayscale hover:grayscale-0 transition duration-300">
-        <img src="/images/client/bg.jpeg" alt="Client 3" class="h-12 object-contain">
-      </div>
-      <!-- Logo 4 -->
-      <div class="grayscale hover:grayscale-0 transition duration-300">
-        <img src="/images/client/bg.jpeg" alt="Client 4" class="h-12 object-contain">
-      </div>
-      <!-- Logo 5 -->
-      <div class="grayscale hover:grayscale-0 transition duration-300">
-        <img src="/images/client/bg.jpeg" alt="Client 5" class="h-12 object-contain">
+        <img src="{{ Storage::url($item->image) }}" alt="Client 1" class="h-12 object-contain">
       </div>
     </div>
+    @empty
+    <p>Data kosong</p>
+    @endforelse
+
   </div>
 </section>
 

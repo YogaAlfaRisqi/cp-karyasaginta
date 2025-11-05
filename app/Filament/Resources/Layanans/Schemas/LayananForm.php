@@ -18,7 +18,10 @@ class LayananForm
                 Textarea::make('description')
                     ->columnSpanFull(),
                 FileUpload::make('image')
-                    ->image(),
+                    ->image()
+                    ->directory('layanan')
+                    ->disk('public')
+                    ->visibility('public'),
                 TextInput::make('created_by')
                     ->numeric(),
                 TextInput::make('updated_by')
