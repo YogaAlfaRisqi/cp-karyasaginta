@@ -2,71 +2,62 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Experience;
+use Illuminate\Http\Request;
+
 class PengalamanController extends Controller
 {
+    /**
+     * Tampilkan daftar semua pengalaman
+     */
     public function index()
     {
-        $experiences = [
-            [
-                'title' => 'Rehabilitasi',
-                'subtitle' => '500 bibit alpukat unggul varietas hass disalurkan untuk program ketahanan pangan.',
-                'slug' => 'distribusi-alpukat-jabar',
-                'image' => 'images/pengalaman/k1.jpg',
-            ],
-            [
-                'title' => 'Pengadaan Bibit Pinang Unggul untuk Perkebunan',
-                'subtitle' => 'Proyek penyediaan bibit pinang varietas betara di Kalimantan Timur.',
-                'slug' => 'bibit-pinang-kaltim',
-                'image' => 'images/pengalaman/k2.jpg',
-            ],
-            [
-                'title' => 'Distribusi Bibit Alpukat di Lahan Rehabilitasi',
-                'subtitle' => 'Reforestasi dengan tanaman bernilai ekonomi tinggi di Sumatera Selatan.',
-                'slug' => 'petai-jengkol-sumsel',
-                'image' => 'images/pengalaman/k3.jpg',
-            ],
-        ];
-
-
+        // Ambil semua pengalaman yang dipublikasikan
+        $experiences = Experience::query()
+            ->with(['category', 'user'])
+            ->where('is_published', true)
+            ->latest('start_date')
+            ->paginate(9); // Gunakan pagination agar efisien
 
         return view('pages.pengalaman.index', compact('experiences'));
     }
 
-    public function show($slug)
+    /**
+     * Tampilkan detail pengalaman berdasarkan slug
+     */
+    public function show(string $slug)
     {
-        $experiences = [
-            'distribusi-alpukat-jabar' => [
-                'title' => 'Judul proyek',
-                'subtitle' => 'Deskripsi singkat',
-                'location' => 'Sumatera Utara',
-                'date' => 'Agustus 2024',
-                'image' => 'images/pengalaman/k1.jpg',
-                'content' => 'Penjelasan lengkap proyek'
-            ],
-            'bibit-pinang-kaltim' => [
-                'title' => 'Judul proyek',
-                'subtitle' => 'Deskripsi singkat',
-                'location' => 'Sumatera Utara',
-                'date' => 'Agustus 2025',
-                'image' => 'images/pengalaman/k2.jpg',
-                'content' => 'Penjelasan lengkap proyek'
-            ],
-            'petai-jengkol-sumsel' => [
-                'title' => 'Judul proyek',
-                'subtitle' => 'Deskripsi singkat',
-                'location' => 'Lokasi proyek',
-                'date' => 'Agustus 2025',
-                'image' => 'images/pengalaman/k3.jpg',
-                'content' => 'Penjelasan lengkap proyek'
-            ],
-        ];
+        // Cari pengalaman berdasarkan slug
+        $experience = Experience::with(['category', 'user'])
+            ->where('slug', $slug)
+            ->where('is_published', true)
+            ->firstOrFail();
 
-        if (!isset($experiences[$slug])) {
-            abort(404);
-        }
+        // Tambahkan jumlah views
+        $experience->increment('views');
 
-        $experience = $experiences[$slug];
+        // Ambil beberapa pengalaman lain sebagai rekomendasi
+        $relatedExperiences = Experience::with('category')
+            ->where('is_published', true)
+            ->where('id', '!=', $experience->id)
+            ->latest('start_date')
+            ->take(5)
+            ->get();
 
-        return view('pages.pengalaman.show', compact('experience'));
+        return view('pages.pengalaman.show', compact('experience', 'relatedExperiences'));
+    }
+
+    /**
+     * (Opsional) Tampilkan pengalaman berdasarkan kategori
+     */
+    public function category(string $slug)
+    {
+        $experiences = Experience::with(['category', 'author'])
+            ->whereHas('category', fn($q) => $q->where('slug', $slug))
+            ->where('is_published', true)
+            ->latest('start_date')
+            ->paginate(9);
+
+        return view('pages.pengalaman.index', compact('experiences'));
     }
 }

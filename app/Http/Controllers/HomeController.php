@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -59,16 +60,10 @@ class HomeController extends Controller
 
         ];
 
-        $produk = [
-            ['nama' => 'Bibit Alpukat', 'img' => 'Alpukat.jpeg', 'kategori' => 'Hortikultura'],
-            ['nama' => 'Bibit Aren', 'img' => 'Aren.jpeg', 'kategori' => 'Kehutanan'],
-            ['nama' => 'Bibit Bambu Hijau', 'img' => 'Bambu Hijau.jpeg', 'kategori' => 'Kehutanan'],
-            ['nama' => 'Bibit Bambu Kuning', 'img' => 'Bambu Kuning.jpeg', 'kategori' => 'Kehutanan'],
-            ['nama' => 'Bibit Durian', 'img' => 'Durian.jpeg', 'kategori' => 'Perkebunan'],
-            ['nama' => 'Bibit Beringin', 'img' => 'Beringin.jpeg', 'kategori' => 'Perkebunan'],
-            ['nama' => 'Bibit Duku', 'img' => 'Duku.jpg', 'kategori' => 'Pertanian'],
-            ['nama' => 'Bibit Kelengkeng', 'img' => 'Kelengkeng.jpg', 'kategori' => 'Hortikultura'],
-        ];
+        $produk = Product::with('category')
+            ->latest()
+            ->take(8)
+            ->get(['id','name', 'image', 'category_id']);
 
         $testimonials = [
             [

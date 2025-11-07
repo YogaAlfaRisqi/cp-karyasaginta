@@ -9,10 +9,10 @@
     <!-- Grid Projects -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
       @foreach($experiences as $exp)
-        <a href="{{ route('experiences.show', $exp['slug']) }}"
+        <a href="{{ route('experience.show', $exp['slug']) }}"
            class="group block bg-gray-50 rounded-xl shadow hover:shadow-md transition p-5">
           
-          <img src="{{ asset($exp['image']) }}"
+          <img src="{{ asset('storage/' . $exp->image) }}"
                alt="{{ $exp['title'] }}"
                class="w-full h-48 object-cover rounded-md mb-4 group-hover:scale-105 transition-transform duration-300">
           

@@ -83,11 +83,11 @@
 
 
                     <!-- Pengalaman Projek -->
-                    <a href="{{ route('pengalaman') }}"
-                        class="relative {{ request()->routeIs('pengalaman') ? 'text-green-700 font-semibold' : 'text-gray-700 hover:text-green-700' }} group transition">
+                    <a href="{{ route('experience.index') }}"
+                        class="relative {{ request()->routeIs('experience.*') ? 'text-green-700 font-semibold' : 'text-gray-700 hover:text-green-700' }} group transition">
                         Pengalaman
                         <span class="absolute left-0 -bottom-1 w-full h-[2px] bg-green-700 
-                        {{ request()->routeIs('pengalaman') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}
+                        {{ request()->routeIs('experience.*') ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100' }}
                         transition-transform duration-500 ease-in-out origin-left"></span>
                     </a>
 

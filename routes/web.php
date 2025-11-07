@@ -17,9 +17,12 @@ Route::name('tentangkami.')->prefix('tentangkami')->group(function () {
     Route::get('/gallery', [TentangKamiController::class, 'gallery'])->name('gallery');
 });
 Route::get('layanan', [LayananController::class, 'index'])->name('layanan');
-Route::get('pengalaman', [PengalamanController::class, 'index'])->name('pengalaman');
 Route::get('contact', [KontakController::class, 'index'])->name('contact');
-Route::get('/experiences/{slug}', [PengalamanController::class, 'show'])->name('experiences.show');
+Route::get('/experience', [PengalamanController::class, 'index'])->name('experience.index');
+Route::get('/experience/{slug}', [PengalamanController::class, 'show'])->name('experience.show');
+Route::get('/experience/category/{slug}', [PengalamanController::class, 'category'])->name('experience.category');
+
+
 
 
 Route::get('/dashboard', function () {

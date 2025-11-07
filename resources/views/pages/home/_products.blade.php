@@ -10,7 +10,7 @@
 
     <!-- Grid Produk -->
     <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-      @foreach ($produk as $item)
+      @forelse ($produk as $item)
       <div class="flex flex-col bg-white rounded-2xl shadow-md hover:shadow-xl transition overflow-hidden relative" data-aos="zoom-in">
 
         <!-- Badge -->
@@ -20,8 +20,7 @@
 
         <!-- Gambar -->
         <div class="w-full h-56 bg-gray-50">
-          <img src="{{ asset('images/bibit/' . $item['img']) }}"
-            alt="{{ $item['nama'] }}"
+          <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}"
             class="object-cover w-full h-full transition-transform duration-500 hover:scale-105"
             loading="lazy"
             decoding="async" />
@@ -30,8 +29,8 @@
 
         <!-- Info Produk -->
         <div class="flex-1 flex flex-col p-4 text-center">
-          <h3 class="text-lg font-semibold text-gray-800">{{ $item['nama'] }}</h3>
-          <p class="text-sm text-green-600 mt-1">{{ $item['kategori'] }}</p>
+          <h3 class="text-lg font-semibold text-gray-800">{{ $item->name }}</h3>
+          <p class="text-sm text-green-600 mt-1">{{ $item->category ? $item->category->name : 'Tanpa kategori' }}</p>
           <!-- Rating -->
           <div class="flex justify-center items-center mt-1 text-yellow-400">
             ★★★★☆ <span class="text-xs text-gray-500 ml-1">(120)</span>
@@ -45,7 +44,10 @@
           </a>
         </div>
       </div>
-      @endforeach
+      @empty
+      <p class="col-span-full text-center text-gray-500">Belum ada produk tersedia.</p>
+      @endforelse
+      
     </div>
 
 
