@@ -41,14 +41,14 @@
             <span class="bg-green-500 p-2 rounded-full">
               <i class="fa fa-phone text-white" aria-hidden="true"></i>
             </span>
-            <p class="text-sm">+62 812-3456-7890</p>
+            <p class="text-sm">+62 812 6527 016</p>
           </div>
           <!-- Email -->
           <div class="flex items-center space-x-3">
             <span class="bg-blue-500 p-2 rounded-full">
               <i class="fa fa-envelope text-white" aria-hidden="true"></i>
             </span>
-            <p class="text-sm">info@karyasaginta.com</p>
+            <p class="text-sm">karyasaginta@gmail.com</p>
           </div>
         </div>
       </div>
@@ -61,9 +61,9 @@
           Kabanjahe – Karo, Sumatera Utara
         </p>
         <div class="space-y-2 text-sm text-white/80  divide-y divide-white/20">
-          <p>WhatsApp: <a href="https://wa.me/6281388181416" class="hover:underline">+62 813-8818-1416</a></p>
-          <p>WhatsApp: <a href="https://wa.me/6285372081131" class="hover:underline">+62 853-7208-1131</a></p>
-          <p>Email: <a href="mailto:karyasaginta@gmail.com" class="hover:underline">karyasaginta@gmail.com</a></p>
+          <p>WhatsApp: <a href="https://wa.me/628126527016" class="hover:underline">+62 812-6527-016</a></p>
+          <!-- <p>WhatsApp: <a href="https://wa.me/6285372081131" class="hover:underline">+62 853-7208-1131</a></p> -->
+          <!-- <p>Email: <a href="mailto:karyasaginta@gmail.com" class="hover:underline">karyasaginta@gmail.com</a></p> -->
         </div>
 
         <h3 class="text-base font-semibold mt-6 mb-3">Social Media</h3>

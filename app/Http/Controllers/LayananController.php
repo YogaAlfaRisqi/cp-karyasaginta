@@ -17,6 +17,6 @@ class LayananController extends Controller{
             ->latest()
             ->paginate(10) 
             ->withQueryString(); 
-        return view('pages.layanan',compact('layanan', 'search'));
+        return view('pages.layanan.index',compact('layanan', 'search'));
     }
 }
