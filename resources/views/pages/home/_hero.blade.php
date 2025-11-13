@@ -1,11 +1,11 @@
-<section class="w-full bg-gray/50   flex flex-col items-center text-center pt-6 md:pt-8 lg:pt-10 font-poppins">
+<section class="w-full bg-gray/50 flex flex-col items-center text-center pt-6 md:pt-8 lg:pt-10 font-poppins">
     <div class="max-w-6xl mx-auto px-4">
 
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-green-900 leading-tight mb-4"
             data-aos="fade-up" data-aos-duration="1000">
             Tumbuh Bersama Solusi dan Layanan <br />
             <span class="text-green-600">CV Karya Saginta</span>
-        </h1>
+        </h1>   
 
 
         <p class="text-sm md:text-lg text-gray-700 font-normal mb-6"

@@ -18,8 +18,8 @@ class LayananController extends Controller
                     ->orWhere('deskripsi', 'like', "%{$search}%");
             })
             ->latest()
-            ->paginate(10)
+            ->paginate(3)
             ->withQueryString();
-        return view('pages.layanan.index', compact('layanan', 'search'));
+    return view('pages.layanan.index', compact('layanan', 'search'));
     }
 }

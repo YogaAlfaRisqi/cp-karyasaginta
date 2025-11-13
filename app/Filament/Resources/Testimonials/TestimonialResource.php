@@ -25,8 +25,6 @@ class TestimonialResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'Testimonial';
 
-    protected static string | UnitEnum | null $navigationGroup = 'Tentang Kami';
-
     public static function form(Schema $schema): Schema
     {
         return TestimonialForm::configure($schema);

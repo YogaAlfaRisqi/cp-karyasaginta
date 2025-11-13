@@ -3,6 +3,7 @@
 @section('content')
 
 @include('pages.layanan._banner')
-@include('pages.layanan.layanan')
+@include('pages.layanan._content')
+@include('pages.layanan._paginate')
 
 @endsection

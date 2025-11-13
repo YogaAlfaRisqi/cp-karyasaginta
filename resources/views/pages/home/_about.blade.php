@@ -3,19 +3,19 @@
 
         <!-- Header -->
         <!-- <h4 class="text-sm font-medium text-green-600 uppercase mb-2">Tentang Kami</h4> -->
-        <div class="flex items-center space-x-3 mb-4">
+        <div class="flex items-center space-x-3 mb-4 mx-6">
             <img src="images/Logo.png" alt="Logo CV Karya Saginta" class="w-12 h-12 object-contain" />
-            <h2 class="text-2xl sm:text-3xl font-bold">CV Karya Saginta</h2>
+            <h2 class="text-2xl sm:text-3xl font-bold text-green-900">CV Karya Saginta</h2>
         </div>
 
         <!-- Deskripsi -->
-        <p class="text-black/70 max-w-3xl lg:max-w-6xl mb-6 leading-relaxed">
+        <p class="text-black/70 max-w-3xl lg:max-w-6xl mb-6 leading-relaxed mx-6">
             Merupakan perusahaan yang bergerak dalam bidang pengadaan bibit untuk pertanian, perkebunan, maupun kehutanan,
             serta pembibitan tanaman untuk program reboisasi termasuk tanaman hortikultura.
         </p>
 
         <!-- Layanan List -->
-        <section class=" text-green-800 py-6 px-4 font-poppins">
+        <section class=" text-green-800 py-6 px-4 font-poppins mb-6">
             <div class="max-w-6xl mx-auto">
 
                 @php
@@ -71,14 +71,14 @@
                         <!-- Konten -->
                         <div class="flex-1 p-5 flex flex-col justify-between">
                             <div>
-                                <div class="flex justify-between items-center mb-1">
+                                <div class="mb-1">
                                     <h3 class="text-xl font-semibold text-gray-800">{{ $item['title'] }}</h3>
-                                    <div class="flex items-center text-sm text-yellow-500">
+                                    <!-- <div class="flex items-center text-sm text-yellow-500">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                                             <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.287 3.956a1 1 0 00.95.69h4.162c.969 0 1.371 1.24.588 1.81l-3.37 2.449a1 1 0 00-.364 1.118l1.288 3.957c.3.921-.755 1.688-1.54 1.118L10 15.347l-3.952 2.68c-.785.57-1.84-.197-1.54-1.118l1.287-3.957a1 1 0 00-.364-1.118L2.06 9.383c-.783-.57-.38-1.81.588-1.81h4.163a1 1 0 00.95-.69l1.288-3.956z" />
                                         </svg>
                                         {{ $item['rating'] }}/5
-                                    </div>
+                                    </div> -->
                                 </div>
 
                                 <p class="text-gray-500 text-sm mb-3">{{ $item['category'] }}</p>

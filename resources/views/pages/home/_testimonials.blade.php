@@ -1,28 +1,62 @@
-<section class="bg-gradient-to-b from-green-50 to-white py-16 font-poppins text-gray-800" data-aos="fade-down" data-aos-duration="1000">
-    <div class="max-w-6xl mx-auto px-6">
+<section class="py-20 sm:py-32 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <!-- Header -->
-        <div class="text-center mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-green-700 mb-2">Testimoni Client</h2>
-            <p class="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
-                Pendapat mitra kami tentang pelayanan dan kualitas bibit dari CV Karya Saginta.
+        {{-- JUDUL SECTION --}}
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-extrabold text-green-900 leading-tight">
+                Testimonial
+            </h2>
+            <p class="text-lg text-gray-600 mt-3">
+                Dengarkan langsung dari pengguna nyata <br>yang mengandalkan produk kami setiap hari untuk mendapatkan hasil.
             </p>
         </div>
 
-        <!-- Testimonials -->
-        <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            @foreach ($testimonials as $t)
-            <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition">
-                <div class="flex items-center space-x-4 mb-4">
-                    <img src="{{ asset('images/testimonials/' . $t['photo']) }}" alt="{{ $t['name'] }}" class="w-14 h-14 rounded-full object-cover">
-                    <div>
-                        <h4 class="font-semibold text-gray-800">{{ $t['name'] }}</h4>
-                        <p class="text-sm text-gray-500">{{ $t['role'] }}</p>
-                    </div>
+        <div class="grid grid-cols-1 gap-8 lg:grid-cols-3 lg:gap-10">
+
+            @forelse($testimonials as $testimonial)
+            <div class="bg-white rounded-3xl p-8 shadow-xl border border-gray-100 flex flex-col items-center text-center transform  transition duration-300">
+
+                <div class="relative mb-12">
+                    <span class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-full text-5xl text-gray-200 font-serif">
+                        “
+                    </span>
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        "{{ $testimonial['message'] }}"
+                    </p>
                 </div>
-                <p class="text-sm text-gray-600 leading-relaxed italic">“{{ $t['message'] }}”</p>
+
+
+                <div class="mt-auto">
+                    <img src="{{ Storage::url($testimonial->photo_url) }}"
+                        alt="{{ $testimonial['name'] }}"
+                        class="w-16 h-16 rounded-full object-cover mx-auto mb-3 shadow-md border-2 border-white">
+                    <p class="text-base font-bold text-gray-900">{{ $testimonial['name'] }}</p>
+                    <p class="text-sm text-gray-500 mt-0.5">{{ $testimonial['position'] }}</p>
+                </div>
             </div>
-            @endforeach
+            @empty
+            <div class="p-10 md:p-16 bg-white rounded-2xl shadow-lg border-2 border-dashed border-green-200 text-center">
+
+
+                <div class="mx-auto w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-4">
+                    <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path> {{-- Contoh Ikon Lightning Bolt/Inspirasi --}}
+                    </svg>
+                </div>
+
+
+                <h3 class="text-xl font-semibold text-gray-800 mb-2">
+                    Belum Ada Ulasan dari Pelanggan
+                </h3>
+
+
+                <p class="text-gray-500 mb-0">
+                    Dapatkan hasil yang menakjubkan dari produk kami! Ulasan Anda sangat berarti.
+                </p>
+
+            </div>
+            @endforelse
+
         </div>
     </div>
 </section>

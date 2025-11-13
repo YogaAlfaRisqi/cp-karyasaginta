@@ -12,7 +12,6 @@ class Testimonials extends Model
     //
     use HasFactory, SoftDeletes;
     
-
     protected $fillable = [
         'name',
         'position',

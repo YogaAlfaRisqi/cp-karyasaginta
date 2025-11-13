@@ -69,17 +69,6 @@ class HomeController extends Controller
                     'desc' => 'Kami bekerja sama dengan instansi dan masyarakat dalam program reboisasi dan penghijauan kawasan kritis.',
                     'cta' => 'Gabung Program'
                 ],
-                // [
-                //     'image' => 'images/layanan/pelatihan.jpg',
-                //     'title' => 'Pelatihan & Edukasi Pertanian',
-                //     'category' => 'Pelatihan • Edukasi',
-                //     'rating' => '4.6',
-                //     'joined' => '2022',
-                //     'lokasi' => 'Online & Offline',
-                //     'waktu' => 'Jadwal Fleksibel',
-                //     'desc' => 'Menyelenggarakan pelatihan praktis dan seminar tentang agribisnis, budidaya tanaman, dan inovasi teknologi hijau.',
-                //     'cta' => 'Daftar Sekarang'
-                // ],
             ];
            
         
