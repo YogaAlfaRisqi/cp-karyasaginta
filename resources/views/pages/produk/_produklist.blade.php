@@ -1,7 +1,7 @@
 <section class="py-10"> 
 
     <!-- Grid Produk -->
-    <div class="max-w-6xl mx-auto px-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="max-w-6xl xl:max-w-7xl mx-auto px-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5">
 
       @forelse ($products as $item)
       <div
