@@ -29,7 +29,7 @@
 
     <div class="w-full" data-aos="fade-up" data-aos-duration="1000">
         <picture>
-            <source srcset="{{ asset('images/banner-hero-new.jpeg') }}" type="image/webp">
+            <source srcset="{{ asset('images/banner-hero.webp') }}" type="image/webp">
             <img src="{{ asset('images/banner-hero.jpg') }}"
                 alt="CV Karya Saginta"
                 width="1200" height="500"
