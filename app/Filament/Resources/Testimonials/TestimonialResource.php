@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Filament\Resources\Galeris;
+namespace App\Filament\Resources\Testimonials;
 
-use App\Filament\Resources\Galeris\Pages\CreateGaleri;
-use App\Filament\Resources\Galeris\Pages\EditGaleri;
-use App\Filament\Resources\Galeris\Pages\ListGaleris;
-use App\Filament\Resources\Galeris\Schemas\GaleriForm;
-use App\Filament\Resources\Galeris\Tables\GalerisTable;
-use App\Models\Gallery;
+use App\Filament\Resources\Testimonials\Pages\CreateTestimonial;
+use App\Filament\Resources\Testimonials\Pages\EditTestimonial;
+use App\Filament\Resources\Testimonials\Pages\ListTestimonials;
+use App\Filament\Resources\Testimonials\Schemas\TestimonialForm;
+use App\Filament\Resources\Testimonials\Tables\TestimonialsTable;
+use App\Models\Testimonials;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -17,24 +17,24 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use UnitEnum;
 
-class GaleriResource extends Resource
+class TestimonialResource extends Resource
 {
-    protected static ?string $model = Gallery::class;
+    protected static ?string $model = Testimonials::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'Gallery';
+    protected static ?string $recordTitleAttribute = 'Testimonial';
 
     protected static string | UnitEnum | null $navigationGroup = 'Tentang Kami';
 
     public static function form(Schema $schema): Schema
     {
-        return GaleriForm::configure($schema);
+        return TestimonialForm::configure($schema);
     }
 
     public static function table(Table $table): Table
     {
-        return GalerisTable::configure($table);
+        return TestimonialsTable::configure($table);
     }
 
     public static function getRelations(): array
@@ -47,9 +47,9 @@ class GaleriResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListGaleris::route('/'),
-            'create' => CreateGaleri::route('/create'),
-            'edit' => EditGaleri::route('/{record}/edit'),
+            'index' => ListTestimonials::route('/'),
+            'create' => CreateTestimonial::route('/create'),
+            'edit' => EditTestimonial::route('/{record}/edit'),
         ];
     }
 

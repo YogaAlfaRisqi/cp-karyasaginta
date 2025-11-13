@@ -16,11 +16,15 @@ class ProductForm
             ->components([
                 TextInput::make('name')
                     ->required(),
+                Select::make('category_id')
+                    ->label('Category')
+                    ->relationship('category', 'name') // otomatis ambil id -> name
+                    ->required(),
                 Textarea::make('description')
                     ->columnSpanFull(),
                 TextInput::make('price')
                     ->numeric()
-                    ->prefix('$'),
+                    ->prefix('Rp'),
                 FileUpload::make('image')
                     ->image()
                     ->directory('products')
@@ -28,15 +32,11 @@ class ProductForm
                     ->visibility('public'),
                 TextInput::make('admin_phone')
                     ->tel(),
-                Select::make('category_id')
-                    ->label('Category')
-                    ->relationship('category', 'name') // otomatis ambil id -> name
-                    
-                    ->required(),
-                TextInput::make('created_by')
-                    ->numeric(),
-                TextInput::make('updated_by')
-                    ->numeric(),
+                
+                // TextInput::make('created_by')
+                //     ->numeric(),
+                // TextInput::make('updated_by')
+                //     ->numeric(),
             ]);
     }
 }
