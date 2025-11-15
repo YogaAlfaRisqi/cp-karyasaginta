@@ -31,17 +31,21 @@ class Product extends BaseModel
 
     public function category()
     {
-        return $this->belongsTo(Category::class, 'category_id');
+        return $this->belongsTo(Category::class);
     }
 
     public function scopeFilter($query, array $filters)
     {
         return $query
-            ->when($filters['kategori'] ?? null, fn($q, $kategori) => 
+            ->when(
+                $filters['kategori'] ?? null,
+                fn($q, $kategori) =>
                 $q->where('category_id', $kategori)
             )
-            ->when($filters['search'] ?? null, fn($q, $search) => 
-                $q->where('title', 'like', "%{$search}%")
+            ->when(
+                $filters['search'] ?? null,
+                fn($q, $search) =>
+                $q->where('name', 'like', "%{$search}%")
             );
     }
 }

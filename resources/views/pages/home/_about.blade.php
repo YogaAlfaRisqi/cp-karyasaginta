@@ -129,9 +129,6 @@
             </div>
         </section>
 
-
-
-
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-center mb-6">
             @foreach ($stats as $i => $stat)
             <div data-aos="zoom-in" data-aos-delay="{{ $i * 100 }}">

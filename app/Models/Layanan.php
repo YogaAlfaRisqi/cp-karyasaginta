@@ -8,10 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Layanan extends Model
 {
-    use HasFactory,SoftDeletes;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'title',
+        'category_id',
         'description',
         'image',
         'created_by',
@@ -28,4 +29,8 @@ class Layanan extends Model
         return $this->belongsTo(User::class, 'updated_by');
     }
 
+    public function category()
+    {
+        return $this->belongsTo(ServiceCategory::class, 'category_id');
+    }
 }

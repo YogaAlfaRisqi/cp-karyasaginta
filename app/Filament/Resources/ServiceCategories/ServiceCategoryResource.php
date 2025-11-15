@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Filament\Resources\Layanans;
+namespace App\Filament\Resources\ServiceCategories;
 
-use App\Filament\Resources\Layanans\Pages\CreateLayanan;
-use App\Filament\Resources\Layanans\Pages\EditLayanan;
-use App\Filament\Resources\Layanans\Pages\ListLayanans;
-use App\Filament\Resources\Layanans\Schemas\LayananForm;
-use App\Filament\Resources\Layanans\Tables\LayanansTable;
-use App\Models\Layanan;
+use App\Filament\Resources\ServiceCategories\Pages\CreateServiceCategory;
+use App\Filament\Resources\ServiceCategories\Pages\EditServiceCategory;
+use App\Filament\Resources\ServiceCategories\Pages\ListServiceCategories;
+use App\Filament\Resources\ServiceCategories\Schemas\ServiceCategoryForm;
+use App\Filament\Resources\ServiceCategories\Tables\ServiceCategoriesTable;
+use App\Models\ServiceCategory;
 use BackedEnum;
 use Filament\Resources\Resource;
 use Filament\Schemas\Schema;
@@ -17,24 +17,24 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use UnitEnum;
 
-class LayananResource extends Resource
+class ServiceCategoryResource extends Resource
 {
-    protected static ?string $model = Layanan::class;
+    protected static ?string $model = ServiceCategory::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
 
-    protected static ?string $recordTitleAttribute = 'Layanan';
+    protected static ?string $recordTitleAttribute = 'ServiceCategory';
 
     protected static string | UnitEnum | null $navigationGroup = 'Layanan';
 
     public static function form(Schema $schema): Schema
     {
-        return LayananForm::configure($schema);
+        return ServiceCategoryForm::configure($schema);
     }
 
     public static function table(Table $table): Table
     {
-        return LayanansTable::configure($table);
+        return ServiceCategoriesTable::configure($table);
     }
 
     public static function getRelations(): array
@@ -47,9 +47,9 @@ class LayananResource extends Resource
     public static function getPages(): array
     {
         return [
-            'index' => ListLayanans::route('/'),
-            'create' => CreateLayanan::route('/create'),
-            'edit' => EditLayanan::route('/{record}/edit'),
+            'index' => ListServiceCategories::route('/'),
+            'create' => CreateServiceCategory::route('/create'),
+            'edit' => EditServiceCategory::route('/{record}/edit'),
         ];
     }
 

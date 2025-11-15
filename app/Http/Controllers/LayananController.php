@@ -12,14 +12,17 @@ class LayananController extends Controller
     {
 
         $search = $requess->query('search');
-        $layanan = Layanan::query()
+        $layanan = Layanan::with('category')
             ->when($search, function ($query, $search) {
-                $query->where('nama', 'like', "%{$search}%")
-                    ->orWhere('deskripsi', 'like', "%{$search}%");
+                $query->where(function ($q) use ($search) {
+                    $q->where('nama', 'like', "%{$search}%")
+                        ->orWhere('deskripsi', 'like', "%{$search}%");
+                });
             })
             ->latest()
-            ->paginate(3)
+            ->paginate(10)
             ->withQueryString();
-    return view('pages.layanan.index', compact('layanan', 'search'));
+
+        return view('pages.layanan.index', compact('layanan', 'search'));
     }
 }
