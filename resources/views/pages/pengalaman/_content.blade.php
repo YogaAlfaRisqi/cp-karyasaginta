@@ -1,11 +1,10 @@
 <section class="bg-gray-50 py-20 sm:py-32" id="experience">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
  
-        {{-- GRID PROJECTS --}}
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12"> {{-- Tambah gap-y-12 untuk ruang vertikal yang lega --}}
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12"> 
             @foreach($experiences as $exp)
-                <a href="{{ route('experience.show', $exp['slug']) }}"
-                   class="group block p-0 transition duration-300"> {{-- Hapus semua styling card (bg-white, shadow, rounded) --}}
+                <a href="{{ route('experience.show', $exp->slug) }}"
+                   class="group block p-0 transition duration-300"> 
                     
                     <div class="relative overflow-hidden rounded-xl mb-4">
                         <img src="{{ asset('storage/' . $exp->image) }}"

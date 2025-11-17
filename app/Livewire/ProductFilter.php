@@ -3,62 +3,73 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use Livewire\WithPagination;
-use Livewire\Attributes\Url;
-use Livewire\Attributes\On;
 use App\Models\Product;
 use App\Models\Category;
+use Livewire\Attributes\Computed;
+use Livewire\Attributes\On;
+use Livewire\Attributes\Url;
+use Livewire\WithPagination;
 
 class ProductFilter extends Component
 {
     use WithPagination;
 
-    #[Url(as: 'q')]
+    #[Url()]
     public $search = '';
-    
-    #[Url(as: 'category')]
-    public $selectedCategory = '';
+    #[Url()]
+    public $category = '';
 
-    // Method untuk reset filter
-    public function resetFilters()
+    #[On('search')]
+    public function updateSearch($search)
     {
-        $this->reset(['search', 'selectedCategory']);
+        $this->search = $search;
         $this->resetPage();
     }
 
-    // Reset pagination saat search berubah
-    public function updatedSearch()
+    public function clearFilters()
     {
+        $this->search = '';
+        $this->category = '';
         $this->resetPage();
     }
 
-    // Reset pagination saat category berubah
-    public function updatedSelectedCategory()
+    #[Computed()]
+    public function products()
     {
-        $this->resetPage();
+        $query = Product::query()->with('category');
+
+        // Filter berdasarkan search
+        if ($this->search) {
+            $query->where('name', 'like', '%' . $this->search . '%');
+        }
+
+        // Filter berdasarkan kategori
+        if ($this->category) {
+            $query->whereHas('category', function ($q) {
+                $q->where('slug', $this->category);
+            });
+        }
+
+        // Pagination
+        return $query->orderBy('created_at', 'desc')->paginate(10);
+    }
+
+    public function activeCategory()
+    {
+        if ($this->category === null || $this->category=== ''){
+            return null;
+        }
+        return Category::where('slug', $this->category)->first();
     }
 
     public function render()
     {
-        
-
-        $products = Product::query()
-            ->when($this->search, function($query) {
-                $query->where('name', 'like', '%' . $this->search . '%')
-                      ->orWhere('description', 'like', '%' . $this->search . '%');
-            })
-            ->when($this->selectedCategory, function($query) {
-                $query->where('category_id', $this->selectedCategory);
-            })
-            ->with('category')
-            ->latest()
-            ->paginate(12);
-
-        $categories = Category::orderBy('name')->get();
-
+    
+        $categories = Category::all(); // Bisa di-cache juga jika perlu
         return view('livewire.product-filter', [
-            'products' => $products,
-            'categories' => $categories
+            'products' => $this->products(),
+            'categories' => $categories,
+            'activeCategory' => $this->activeCategory(),
         ]);
     }
 }

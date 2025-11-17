@@ -27,7 +27,7 @@
 
     </div>
 
-    <div class="w-full" data-aos="fade-up" data-aos-duration="1000">
+    <div class="w-full" data-aos="fade-down" data-aos-duration="1000">
         <picture>
             <source srcset="{{ asset('images/banner-hero.webp') }}" type="image/webp">
             <img src="{{ asset('images/banner-hero.jpg') }}"

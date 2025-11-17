@@ -23,12 +23,12 @@
                     Kategori
                 </label>
                 <select 
-                    wire:model.live="selectedCategory"
+                    wire:model="category"
                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
                     <option value="">Semua Kategori</option>
-                    @foreach($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                    @foreach($categories as $cat)
+                        <option value="{{ $cat->slug }}">{{ $cat->name }}</option>
                     @endforeach
                 </select>
             </div>
@@ -36,7 +36,7 @@
             <!-- Reset Button -->
             <div class="flex items-end">
                 <button 
-                    wire:click="resetFilters"
+                    wire:click="clearFilters"
                     class="w-full px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
                 >
                     Reset Filter
@@ -52,15 +52,10 @@
                     Pencarian: "{{ $search }}"
                 </span>
             @endif
-            @if($selectedCategory)
-                @php
-                    $selectedCat = $categories->find($selectedCategory);
-                @endphp
-                @if($selectedCat)
-                    <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full">
-                        Kategori: {{ $selectedCat->name }}
-                    </span>
-                @endif
+            @if($activeCategory)
+                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full">
+                    Kategori: {{ $activeCategory->name }}
+                </span>
             @endif
         </div>
     </div>

@@ -26,9 +26,9 @@ class ExperienceCategory extends Model
         });
     }
 
+    // Relasi yang benar: satu kategori punya banyak pengalaman
     public function experiences()
     {
-         return $this->belongsTo(ExperienceCategory::class, 'experience_category_id');
-
+        return $this->hasMany(Experience::class, 'experience_category_id', 'id');
     }
 }

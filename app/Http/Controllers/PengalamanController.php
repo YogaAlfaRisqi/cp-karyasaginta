@@ -3,23 +3,54 @@
 namespace App\Http\Controllers;
 
 use App\Models\Experience;
+use App\Models\ExperienceCategory;
 use Illuminate\Http\Request;
 
 class PengalamanController extends Controller
 {
     /**
+     * Ambil data sidebar (Latest Posts, Categories, Tags, Social Media)
+     * Bisa dipanggil di semua method
+     */
+    private function sidebarData()
+    {
+        $latestPosts = Experience::with('category', 'user')
+            ->where('is_published', true)
+            ->latest('start_date')
+            ->take(3)
+            ->get();
+
+       // 2. Categories yang punya pengalaman publik
+        $categories = ExperienceCategory::withCount(['experiences' => fn($q) => $q->where('is_published', true)])
+            ->whereHas('experiences', fn($q) => $q->where('is_published', true))
+            ->get();
+
+
+        $tags = ['#BibitUnggul', '#Mangga', '#Durian', '#Reboisasi', '#JawaBarat'];
+
+        $socials = [
+            ['icon' => 'facebook', 'url' => '#'],
+            ['icon' => 'linkedin', 'url' => '#'],
+            ['icon' => 'instagram', 'url' => '#'],
+            ['icon' => 'twitter', 'url' => '#'],
+        ];
+
+        return compact('latestPosts', 'categories', 'tags', 'socials');
+    }
+
+    /**
      * Tampilkan daftar semua pengalaman
      */
     public function index()
     {
-        // Ambil semua pengalaman yang dipublikasikan
-        $experiences = Experience::query()
-            ->with(['category', 'user'])
+        $experiences = Experience::with(['category', 'user'])
             ->where('is_published', true)
             ->latest('start_date')
-            ->paginate(9); // Gunakan pagination agar efisien
+            ->paginate(9);
 
-        return view('pages.pengalaman.index', compact('experiences'));
+        $sidebar = $this->sidebarData();
+
+        return view('pages.pengalaman.index', compact('experiences') + $sidebar);
     }
 
     /**
@@ -27,37 +58,41 @@ class PengalamanController extends Controller
      */
     public function show(string $slug)
     {
-        // Cari pengalaman berdasarkan slug
         $experience = Experience::with(['category', 'user'])
             ->where('slug', $slug)
             ->where('is_published', true)
             ->firstOrFail();
 
-        // Tambahkan jumlah views
-        $experience->increment('views');
+        $experience->incrementViews();
 
-        // Ambil beberapa pengalaman lain sebagai rekomendasi
-        $relatedExperiences = Experience::with('category')
+        $relatedExperiences = Experience::with(['category', 'user'])
             ->where('is_published', true)
             ->where('id', '!=', $experience->id)
             ->latest('start_date')
             ->take(5)
             ->get();
 
-        return view('pages.pengalaman.show', compact('experience', 'relatedExperiences'));
+        $sidebar = $this->sidebarData();
+
+        return view('pages.pengalaman.show', compact('experience', 'relatedExperiences') + $sidebar);
     }
 
     /**
-     * (Opsional) Tampilkan pengalaman berdasarkan kategori
+     * Tampilkan pengalaman berdasarkan kategori
      */
     public function category(string $slug)
     {
-        $experiences = Experience::with(['category', 'author'])
-            ->whereHas('category', fn($q) => $q->where('slug', $slug))
+        // Ambil kategori dan semua pengalaman publik di kategori itu
+        $category = ExperienceCategory::where('slug', $slug)->firstOrFail();
+
+        $experiences = $category->experiences()
+            ->with('user', 'category')
             ->where('is_published', true)
             ->latest('start_date')
             ->paginate(9);
 
-        return view('pages.pengalaman.index', compact('experiences'));
+        $sidebar = $this->sidebarData();
+
+        return view('pages.pengalaman.index', compact('experiences', 'category') + $sidebar);
     }
 }

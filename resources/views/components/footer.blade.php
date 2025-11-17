@@ -5,20 +5,37 @@
       <div class="flex flex-col items-start gap-3">
         <!-- Logo -->
         <img src="/images/logo.png" alt="Logo CV Karya Saginta" class="w-25 h-25 object-contain">
-
-        <!-- Text -->
         <div>
           <h2 class="text-lg font-semibold">CV Karya Saginta</h2>
-          <p class="text-sm text-white/80 leading-relaxed">
-            Penyedia Bibit Unggul untuk Pertanian, Kehutanan, Perkebunan, dan Hortikultura.
+          <p class="text-sm text-white/80 leading-relaxed ">
+            Penyedia Bibit Unggul untuk Pertanian, Kehutanan, Perkebunan, dan Hortikultura. Kami juga menaungi beberapa anak perusahaan yang berfokus pada segmen pasar spesifik.
           </p>
+
+          <div class="pt-4">
+            <div class="flex gap-2">
+              <div class="flex flex-col items-center text-center ">
+                <img src="/images/logo 1.png" alt="Logo Anak Perusahaan 1" class="w-10 h-10 object-contain bg-white/10 rounded-md p-1">
+                <p class="text-xs mt-2">kabolidi</p>
+              </div>
+
+              <div class="flex flex-col items-center text-center">
+                <img src="/images/logo 2.png" alt="Logo Anak Perusahaan 2" class="w-10 h-10 object-contain bg-white/10 rounded-md p-1">
+                <p class="text-xs mt-2">nichas's garden</p>
+              </div>
+
+              <div class="flex flex-col items-center text-center">
+                <img src="/images/logo 3.png" alt="Logo Anak Perusahaan 3" class="w-10 h-10 object-contain bg-white/10 rounded-md p-1">
+                <p class="text-xs mt-2">santhamarta</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
 
       <!-- Navigasi -->
       <div class="md:ml-15">
-        <h3 class="text-base font-semibold mb-4 ">Navigasi</h3>
+        <h3 class="text-base font-semibold mb-4">Navigasi</h3>
         <ul class="space-y-2 text-sm text-white/80 divide-y divide-white/20">
           <li><a href="#tentang" class="block py-2 hover:text-green-400 transition-colors">Tentang</a></li>
           <li><a href="#produk" class="block py-2 hover:text-green-400 transition-colors">Produk</a></li>

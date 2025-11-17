@@ -10,4 +10,8 @@ export default defineConfig({
         }),
         tailwindcss(),
     ],
+    server: {
+        https: true, // Enable HTTPS in dev
+        host: '0.0.0.0',
+    },
 });

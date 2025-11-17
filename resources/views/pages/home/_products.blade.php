@@ -1,4 +1,4 @@
-<section id="produk" class="bg-gradient-to-b from-white via-green-50 to-white py-16 font-poppins" data-aos="fade-up" data-aos-duration="1000">
+<section id="produk" class="bg-gradient-to-b from-white via-green-50 to-white py-16 font-poppins" data-aos="fade-right">
   <div class="max-w-6xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto px-6">
 
     <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-6 mb-8">
