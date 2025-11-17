@@ -27,6 +27,8 @@ class ServiceCategoryResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'Layanan';
 
+    protected static ?string $navigationLabel = 'Kategori Layanan';
+
     public static function form(Schema $schema): Schema
     {
         return ServiceCategoryForm::configure($schema);

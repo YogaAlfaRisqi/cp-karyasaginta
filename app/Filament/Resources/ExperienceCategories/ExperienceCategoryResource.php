@@ -27,6 +27,13 @@ class ExperienceCategoryResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'Pengalaman';
 
+    protected static ?string $navigationLabel = 'Kategori Pengalaman';
+
+    protected static ?string $modelLabel = 'Kategori Pengalaman';
+
+    protected static ?string $pluralModelLabel = 'Kategori Pengalaman';
+
+
     public static function form(Schema $schema): Schema
     {
         return ExperienceCategoryForm::configure($schema);

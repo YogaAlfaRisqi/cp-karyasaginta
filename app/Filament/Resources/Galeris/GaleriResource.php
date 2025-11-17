@@ -27,6 +27,8 @@ class GaleriResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'Tentang Kami';
 
+    protected static ?string $navigationLabel = 'Galeri Kegiatan';
+
     public static function form(Schema $schema): Schema
     {
         return GaleriForm::configure($schema);

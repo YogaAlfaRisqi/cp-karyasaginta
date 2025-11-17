@@ -27,6 +27,12 @@ class ExperienceResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'Pengalaman';
 
+    protected static ?string $navigationLabel = 'Pengalaman';
+
+    protected static ?string $modelLabel = 'Pengalaman';
+
+    protected static ?string $pluralModelLabel = 'Pengalaman';
+
     public static function form(Schema $schema): Schema
     {
         return ExperienceForm::configure($schema);

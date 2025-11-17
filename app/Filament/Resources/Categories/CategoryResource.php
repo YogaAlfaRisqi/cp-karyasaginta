@@ -27,6 +27,12 @@ class CategoryResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'Produk';
 
+      protected static ?string $navigationLabel = 'Categori Bibit';
+
+    protected static ?string $modelLabel = 'Categori Bibit';
+
+    protected static ?string $pluralModelLabel = 'Categori Bibit';
+
     public static function form(Schema $schema): Schema
     {
         return CategoryForm::configure($schema);

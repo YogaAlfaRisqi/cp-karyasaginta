@@ -27,6 +27,8 @@ class LayananResource extends Resource
 
     protected static string | UnitEnum | null $navigationGroup = 'Layanan';
 
+    protected static ?string $navigationLabel = 'Layanan';
+
     public static function form(Schema $schema): Schema
     {
         return LayananForm::configure($schema);

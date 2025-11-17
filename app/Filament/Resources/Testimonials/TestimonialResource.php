@@ -25,6 +25,8 @@ class TestimonialResource extends Resource
 
     protected static ?string $recordTitleAttribute = 'Testimonial';
 
+    protected static ?string $navigationLabel = 'Testimoni Klien';
+
     public static function form(Schema $schema): Schema
     {
         return TestimonialForm::configure($schema);

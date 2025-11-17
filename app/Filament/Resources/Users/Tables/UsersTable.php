@@ -15,6 +15,7 @@ use Filament\Actions\Action; // untuk custom per-record action (force delete)
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\RestoreBulkAction;
+use Filament\Actions\ViewAction;
 
 class UsersTable
 {
@@ -65,6 +66,7 @@ class UsersTable
                 TrashedFilter::make(),
             ])
             ->recordActions([
+                ViewAction::make(),
                 EditAction::make(),
                 DeleteAction::make(),
                 RestoreAction::make(),
