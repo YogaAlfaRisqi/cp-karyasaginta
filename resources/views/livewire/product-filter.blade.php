@@ -1,127 +1,116 @@
-<div class="container mx-auto px-4 py-8">
-    <!-- Filter Section -->
-    <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-        <h2 class="text-2xl font-bold mb-6">Filter Produk</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <!-- Search Input -->
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">
-                    Cari Produk
-                </label>
-                <input 
-                    type="text" 
-                    wire:model.live="search"
-                    placeholder="Masukkan nama produk..."
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-            </div>
+<section id="products" class="bg-gradient-to-b from-white via-green-50 to-white py-16 font-poppins" data-aos="fade-right">
+  <div class="max-w-6xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl mx-auto px-6">
 
-            <!-- Category Select -->
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-2">
-                    Kategori
-                </label>
-                <select 
-                    wire:model="category"
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                >
-                    <option value="">Semua Kategori</option>
-                    @foreach($categories as $cat)
-                        <option value="{{ $cat->slug }}">{{ $cat->name }}</option>
-                    @endforeach
-                </select>
-            </div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-6 mb-8">
 
-            <!-- Reset Button -->
-            <div class="flex items-end">
-                <button 
-                    wire:click="clearFilters"
-                    class="w-full px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors"
-                >
-                    Reset Filter
-                </button>
-            </div>
-        </div>
+      <div class="inline-flex items-center space-x-2 p-1.5 bg-green-100 rounded-lg mb-3">
+        <svg class="w-5 h-5 text-green-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+        </svg>
+        <span class="text-xs font-semibold text-green-700 uppercase tracking-wider">Bibit Unggulan</span>
+      </div>
 
-        <!-- Active Filters Info -->
-        <div class="mt-4 flex items-center gap-2 text-sm text-gray-600">
-            <span>Menampilkan {{ $products->total() }} produk</span>
-            @if($search)
-                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full">
-                    Pencarian: "{{ $search }}"
-                </span>
-            @endif
-            @if($activeCategory)
-                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full">
-                    Kategori: {{ $activeCategory->name }}
-                </span>
-            @endif
-        </div>
+      <h2 class="text-3xl md:text-4xl font-extrabold text-gray-800 leading-tight mb-4">
+        Pilih Bibit Tanaman Terbaik untuk Kebun Anda
+      </h2>
+
+      <div class="flex flex-col md:flex-row md:items-center justify-between">
+
+        <p class="text-gray-600 max-w-xl text-base pr-4 mb-4 md:mb-0">
+          Katalog bibit unggul kami telah diverifikasi dan siap tanam, langsung dari kebun mitra terpercaya.
+        </p>
+
+
+      </div>
+
     </div>
 
-    <!-- Loading Indicator -->
-    <div wire:loading class="fixed top-4 right-4 bg-blue-500 text-white px-4 py-2 rounded-lg shadow-lg z-50">
-        <div class="flex items-center gap-2">
-            <svg class="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+    <!-- Grid products -->
+    <div class="max-w-6xl mx-auto px-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+      @forelse ($products as $item)
+      <div
+        class="bg-white rounded-2xl shadow-sm hover:shadow-lg border border-gray-100 overflow-hidden transition-transform duration-300 hover:-translate-y-1">
+        <!-- Gambar -->
+        <div class="relative w-full h-48 overflow-hidden ">
+          <img src="{{ Storage::url($item->image) }}" alt="{{ $item->nama }}"
+            class="w-full h-full object-cover transition-transform duration-700 hover:scale-105">
+          <!-- Icon Bookmark -->
+          <span class="absolute top-3 bg-green-500 text-white text-xs font-semibold px-2 py-1 rounded-r-md">
+            Best Seller
+          </span>
+          <button
+            class="absolute top-3 right-3 bg-white/80 backdrop-blur-sm p-2 rounded-full shadow hover:bg-white transition">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-green-700" fill="none" viewBox="0 0 24 24"
+              stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M5 5v14l7-5 7 5V5a2 2 0 00-2-2H7a2 2 0 00-2 2z" />
             </svg>
-            <span>Loading...</span>
+          </button>
         </div>
-    </div>
 
-    <!-- Products Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        @forelse($products as $product)
-            <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
-                <!-- Product Image -->
-                <div class="h-48 bg-gray-200 flex items-center justify-center">
-                    @if($product->image)
-                        <img src="{{ asset('storage/' . $product->image) }}" 
-                             alt="{{ $product->name }}"
-                             class="w-full h-full object-cover">
-                    @else
-                        <svg class="w-20 h-20 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                        </svg>
-                    @endif
-                </div>
-
-                <!-- Product Info -->
-                <div class="p-4">
-                    <span class="inline-block px-2 py-1 text-xs font-semibold text-blue-600 bg-blue-100 rounded-full mb-2">
-                        {{ $product->category->name }}
-                    </span>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2 line-clamp-2">
-                        {{ $product->name }}
-                    </h3>
-                    <p class="text-xl font-bold text-green-600">
-                        Rp {{ number_format($product->price, 0, ',', '.') }}
-                    </p>
-                    @if($product->stock > 0)
-                        <p class="text-sm text-gray-600 mt-1">Stok: {{ $product->stock }}</p>
-                    @else
-                        <p class="text-sm text-red-600 mt-1">Stok Habis</p>
-                    @endif
-                    <button class="mt-4 w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                        Lihat Detail
-                    </button>
-                </div>
+        <!-- Konten -->
+        <div class="p-5 space-y-3">
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="text-lg font-semibold text-gray-800">{{ $item->name }} <span
+                  class="text-gray-500 text-xs">({{ $item->category->name ?? 'Tanaman' }})</span></h3>
+              <p class="text-sm text-gray-400">Bibit unggul bersertifikat</p>
             </div>
-        @empty
-            <div class="col-span-full text-center py-12">
-                <svg class="mx-auto h-24 w-24 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                <h3 class="mt-4 text-lg font-medium text-gray-900">Produk tidak ditemukan</h3>
-                <p class="mt-2 text-gray-500">Coba ubah filter atau kata kunci pencarian Anda</p>
-            </div>
-        @endforelse
-    </div>
+          </div>
 
-    <!-- Pagination -->
-    <div class="mt-8">
-        {{ $products->links() }}
+          <!-- Info Bibit -->
+          <div class="text-sm text-gray-500 space-y-2 mt-2">
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-green-600" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span>Umur tanam: {{ $item->umur ?? '3 bulan' }}</span>
+            </div>
+
+            <div class="flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-green-600" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M5 13l4 4L19 7" />
+              </svg>
+              <span>Stok tersedia: {{ $item->stok ?? '50 bibit' }}</span>
+            </div>
+          </div>
+
+          <!-- Harga & Tombol -->
+          <div class="p-0">
+            <!-- <a href=""
+              class="px-4 py-2 border border-green-800 hover:border-gray-500 text-gray-700 rounded-xl text-sm font-medium transition">
+              Detail
+            </a> -->
+            <!-- <a href="https://wa.me/{{ $wa }}?text=Halo,%20saya%20tertarik%20dengan%20bibit%20{{ urlencode($item->nama) }}"
+              target="_blank"
+              class="px-5 py-2 bg-green-900 hover:bg-green-700 text-center text-white rounded-xl text-lg font-medium transition">
+              Beli Sekarang
+            </a> -->
+
+            <a href="#" class="block text-center py-2 bg-green-600 text-white font-medium rounded-xl hover:bg-green-700 transition">
+              Pesan Sekarang
+            </a>
+
+          </div>
+        </div>
+      </div>
+
+      @empty
+      <div class="col-span-full flex flex-col items-center justify-center text-center py-10 bg-white rounded-xl border">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-gray-400 mb-3" fill="none" viewBox="0 0 24 24"
+          stroke="currentColor" stroke-width="1.5">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M21 7.5l-9-4.5-9 4.5m18 0v9l-9 4.5m9-13.5l-9 4.5m0 0l-9-4.5m9 4.5v9m0-9l9-4.5m-9 4.5l-9-4.5" />
+        </svg>
+        <h2 class="text-gray-700 font-semibold text-lg">Belum Ada Bibit</h2>
+        <p class="text-gray-500 text-sm">Belum tersedia bibit tanaman untuk saat ini. Silakan cek kembali nanti.</p>
+      </div>
+      @endforelse
     </div>
-</div>
+  </div>
+</section>

@@ -5,7 +5,7 @@
             data-aos="fade-up" data-aos-duration="1000">
             Tumbuh Bersama Solusi dan Layanan <br />
             <span class="text-green-600">CV Karya Saginta</span>
-        </h1>   
+        </h1>
 
 
         <p class="text-sm md:text-lg text-gray-700 font-normal mb-6"
@@ -30,15 +30,16 @@
     <div class="w-full" data-aos="fade-down" data-aos-duration="1000">
         <picture>
             <source srcset="{{ asset('images/banner-hero.webp') }}" type="image/webp">
+
             <img src="{{ asset('images/banner-hero.jpg') }}"
                 alt="CV Karya Saginta"
                 width="1200" height="500"
-                class="w-full h-48 sm:h-64 md:h-80 lg:h-[450px] xl:h-[500px] 
-                    object-cover md:object-contain rounded-none"
-                loading="lazy"
+                class="w-full aspect-[1200/500] object-cover rounded-none"
+                loading="eager"
                 decoding="async" />
         </picture>
     </div>
+
 
 
 </section>

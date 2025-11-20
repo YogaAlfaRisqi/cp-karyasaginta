@@ -70,6 +70,7 @@ class ProductFilter extends Component
             'products' => $this->products(),
             'categories' => $categories,
             'activeCategory' => $this->activeCategory(),
+            'wa' => '0876546796928'
         ]);
     }
 }
