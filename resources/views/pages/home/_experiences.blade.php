@@ -70,10 +70,9 @@
             @endforelse
         </div>
 
-        {{-- FOOTER SECTION (Tombol Aksi) --}}
         <div class="text-center mt-16">
             <a href=""
-                class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full shadow-md text-white bg-green-600 hover:bg-green-700 transition duration-300">
+                class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium hover:text-green-600 transition duration-300">
                 Lihat Semua Proyek Kami
                 <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>

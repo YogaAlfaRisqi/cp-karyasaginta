@@ -1,8 +1,8 @@
-<section class="w-full bg-gray/50 flex flex-col items-center text-center pt-6 md:pt-8 lg:pt-10 font-poppins">
+<section id="hero" class="w-full bg-gray/50 flex flex-col items-center text-center pt-6 md:pt-8 lg:pt-10 font-poppins" data-aos="fade-right" data-aos-duration="1000">
     <div class="max-w-6xl mx-auto px-4">
 
         <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-green-900 leading-tight mb-4"
-            data-aos="fade-up" data-aos-duration="1000">
+            data-aos="fade-right" data-aos-duration="1000">
             Tumbuh Bersama Solusi dan Layanan <br />
             <span class="text-green-600">CV Karya Saginta</span>
         </h1>

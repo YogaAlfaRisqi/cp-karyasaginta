@@ -79,8 +79,6 @@
         </p>
         <div class="space-y-2 text-sm text-white/80  divide-y divide-white/20">
           <p>WhatsApp: <a href="https://wa.me/628126527016" class="hover:underline">+62 812-6527-016</a></p>
-          <!-- <p>WhatsApp: <a href="https://wa.me/6285372081131" class="hover:underline">+62 853-7208-1131</a></p> -->
-          <!-- <p>Email: <a href="mailto:karyasaginta@gmail.com" class="hover:underline">karyasaginta@gmail.com</a></p> -->
         </div>
 
         <h3 class="text-base font-semibold mt-6 mb-3">Social Media</h3>

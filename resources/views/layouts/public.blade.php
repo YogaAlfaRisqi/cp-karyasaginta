@@ -50,8 +50,7 @@
     {{-- Splash Screen - Pure JS (No Alpine) --}}
     <div 
         id="splashScreen"
-        class="fixed inset-0 flex items-center justify-center bg-white z-[9999] transition-none
-"
+        class="fixed inset-0 flex items-center justify-center bg-white z-[9999] transition-none"
         style="opacity: 1;"
     >
         <div class="text-center animate-pulse">

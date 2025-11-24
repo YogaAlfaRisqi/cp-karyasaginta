@@ -63,7 +63,7 @@ class StatsOverview extends StatsOverviewWidget
             ->pluck('count')
             ->toArray();
 
-        $serviceChart = Service::where('created_at', '>=', now()->subMonths($months))
+        $serviceChart = Layanan::where('created_at', '>=', now()->subMonths($months))
             ->selectRaw('MONTH(created_at) as month, COUNT(*) as count')
             ->groupBy('month')
             ->orderBy('month')
@@ -105,7 +105,7 @@ class StatsOverview extends StatsOverviewWidget
                 ->color('info')
                 ->chart(!empty($productChart) ? $productChart : [0]),
             
-            Stat::make('Total Layanan', Service::count())
+            Stat::make('Total Layanan', Layanan::count())
                 ->description($servicesDesc)
                 ->descriptionIcon('heroicon-m-wrench-screwdriver')
                 ->color('warning')

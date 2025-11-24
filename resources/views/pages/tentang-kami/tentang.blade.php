@@ -1,95 +1,171 @@
 @extends('layouts.public')
 
 @section('content')
-<x-banner-section
-  title=""
-  subtitle=""
-  image="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80"
-  height="h-80 lg:h-[50vh]" />
 
-<!-- SECTION: Tentang CV -->
-<section class="bg-gradient-to-b from-white via-green-50 to-white text-gray-800 py-16 font-poppins">
-  <div class="max-w-6xl mx-auto px-4">
+{{-- HERO SECTION --}}
+<section class="relative h-[75vh] w-full overflow-hidden">
+    <img 
+        src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=2000&q=80"
+        class="absolute inset-0 w-full h-full object-cover"
+        alt="Hero Image">
 
-    <div class="px-4 ">
-      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <div class="absolute inset-0 bg-green-900/60"></div>
 
-        <!-- Kolom Kiri: Teks -->
+    <div class="relative max-w-7xl mx-auto h-full flex items-center px-6">
+        <div class="text-white max-w-xl">
+            <p class="uppercase tracking-wide text-green-200">Welcome to Karya Saginta</p>
+            <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-4">
+                Trusted by Thousands,<br>
+                Backed by Quality Bibit Unggul
+            </h1>
+            <p class="text-lg text-green-100 mb-6">
+                Penyedia bibit unggul, bersertifikat, dan berlegalitas resmi untuk pertanian, kehutanan, dan reboisasi.
+            </p>
+            <a href="#about"
+                class="px-6 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg shadow transition">
+                Pelajari Lebih Lanjut
+            </a>
+        </div>
+    </div>
+</section>
+
+{{-- ABOUT + VALUES --}}
+<section id="about" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+
+        {{-- LEFT TEXT --}}
         <div>
-          <!-- Subjudul dan Heading -->
-          <h4 class="text-sm text-green-600 uppercase mb-2">Tentang Kami</h4>
-          <div class="flex items-center space-x-3 mb-4">
-            <div class="text-3xl">🌱</div>
-            <h2 class="text-3xl sm:text-4xl font-bold text-green-800">CV Karya Saginta</h2>
-          </div>
+            <h4 class="text-sm text-green-600 uppercase mb-3">Our Profile</h4>
+            <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-6">
+                At the Heart of Indonesia’s Best Bibit Supplier
+            </h2>
 
-          <!-- Deskripsi Utama -->
-          <p class="text-gray-700 text-base leading-relaxed mb-6">
-            CV Karya Saginta adalah perusahaan yang bergerak dalam pengadaan bibit unggul untuk kebutuhan pertanian, kehutanan, hortikultura, dan proyek reboisasi. Berbekal pengalaman lapangan dan sertifikasi resmi dari instansi terkait, kami hadir memberikan solusi terbaik bagi sektor hijau Indonesia.
-          </p>
+            <p class="text-gray-700 text-lg leading-relaxed mb-5">
+                CV Karya Saginta adalah penyedia bibit unggul untuk pertanian, kehutanan, hortikultura,
+                hingga program reboisasi skala besar. Dengan legalitas lengkap dan pengalaman lapangan,
+                kami menjadi mitra tepercaya bagi pemerintah maupun swasta.
+            </p>
+
+            <p class="text-gray-700 text-lg leading-relaxed">
+                Kami memastikan setiap bibit siap tanam, berkualitas, dan bersertifikasi.
+            </p>
         </div>
 
-        <!-- Kolom Kanan: Gambar -->
-        <div class="w-full">
-          <img src="/images/bg.jpeg" alt="Tentang Kami CV Karya Saginta"
-            class="w-full h-100 rounded-xl shadow-lg object-cover">
+        {{-- RIGHT VALUES GRID --}}
+        <div class="grid grid-cols-2 gap-6">
+            <div class="bg-green-50 p-6 rounded-xl shadow">
+                <h3 class="font-semibold text-green-700 mb-2">🎯 Misi Kami</h3>
+                <p class="text-gray-600 text-sm">Penyedia bibit unggul dan layanan berkualitas.</p>
+            </div>
+
+            <div class="bg-green-50 p-6 rounded-xl shadow">
+                <h3 class="font-semibold text-green-700 mb-2">💡 Visi</h3>
+                <p class="text-gray-600 text-sm">Menjadi pelopor penyedia bibit terpercaya di Indonesia.</p>
+            </div>
+
+            <div class="bg-green-50 p-6 rounded-xl shadow">
+                <h3 class="font-semibold text-green-700 mb-2">🌱 Jangkauan</h3>
+                <p class="text-gray-600 text-sm">Melayani proyek nasional hingga CSR perusahaan.</p>
+            </div>
+
+            <div class="bg-green-50 p-6 rounded-xl shadow">
+                <h3 class="font-semibold text-green-700 mb-2">📞 Hubungi Kami</h3>
+                <p class="text-gray-600 text-sm">0895-1234-5678</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+{{-- BRANDS SECTION --}}
+<section class="py-20 bg-green-50">
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="text-center mb-12">
+            <h4 class="text-sm text-green-600 uppercase mb-2">Our Brand</h4>
+            <h2 class="text-3xl font-bold text-green-800">Meet the Company Behind the Growth</h2>
         </div>
 
-      </div>
-    </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div class="bg-white p-6 rounded-xl shadow text-center">
+                <img src="/images/bg.jpeg" class="rounded-lg h-28 w-full object-cover mb-3">
+                <h4 class="font-semibold text-green-700">Karya Saginta</h4>
+            </div>
 
-  </div>
+            <div class="bg-white p-6 rounded-xl shadow text-center">
+                <img src="/images/bg.jpeg" class="rounded-lg h-28 w-full object-cover mb-3">
+                <h4 class="font-semibold text-green-700">Tani Unggul</h4>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow text-center">
+                <img src="/images/bg.jpeg" class="rounded-lg h-28 w-full object-cover mb-3">
+                <h4 class="font-semibold text-green-700">Forest Magic</h4>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl shadow text-center">
+                <img src="/images/bg.jpeg" class="rounded-lg h-28 w-full object-cover mb-3">
+                <h4 class="font-semibold text-green-700">Biscola</h4>
+            </div>
+        </div>
+    </div>
 </section>
 
+{{-- MISSION & IMPACT --}}
+<section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-<!-- SECTION: Rating & Testimoni -->
-<section class="bg-gradient-to-r from-green-50 to-white py-16 text-gray-800 font-poppins">
-  <div class="max-w-6xl mx-auto px-4">
-    <div class="text-center mb-10">
-      <h3 class="text-2xl font-bold text-green-800 mb-2">Apa Kata Mereka?</h3>
-      <p class="text-gray-600 text-sm">Ulasan pelanggan dan mitra kami yang puas.</p>
-    </div>
+        {{-- LEFT ICON CARDS --}}
+        <div class="grid grid-cols-2 gap-6">
+            <div class="p-6 bg-green-50 rounded-xl shadow">
+                <h4 class="font-semibold text-green-700 mb-1">🌿 Nutrisi Tanaman</h4>
+                <p class="text-gray-600 text-sm">Pemilihan bibit dengan nutrisi terbaik.</p>
+            </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <div class="bg-white border rounded-xl p-6 shadow hover:shadow-md transition">
-        <p class="text-gray-600 italic mb-3">"Bibitnya sangat sehat dan pengirimannya cepat. Terpercaya!"</p>
-        <div class="text-sm font-semibold text-green-700">Ibu Sari - Petani Hortikultura</div>
-      </div>
-      <div class="bg-white border rounded-xl p-6 shadow hover:shadow-md transition">
-        <p class="text-gray-600 italic mb-3">"Kami bermitra dalam program CSR. Layanan profesional dan cepat."</p>
-        <div class="text-sm font-semibold text-green-700">PT Hijau Lestari - CSR Manager</div>
-      </div>
-      <div class="bg-white border rounded-xl p-6 shadow hover:shadow-md transition">
-        <p class="text-gray-600 italic mb-3">"Kualitas bibit dan layanan konsultasinya sangat membantu proyek reboisasi kami."</p>
-        <div class="text-sm font-semibold text-green-700">Bpk. Andi - Dinas Kehutanan</div>
-      </div>
+            <div class="p-6 bg-green-50 rounded-xl shadow">
+                <h4 class="font-semibold text-green-700 mb-1">🏢 Komunitas</h4>
+                <p class="text-gray-600 text-sm">Mendukung petani & pegiat lingkungan.</p>
+            </div>
+
+            <div class="p-6 bg-green-50 rounded-xl shadow">
+                <h4 class="font-semibold text-green-700 mb-1">🌏 Sustainability</h4>
+                <p class="text-gray-600 text-sm">Fokus program reboisasi & penghijauan.</p>
+            </div>
+
+            <div class="p-6 bg-green-50 rounded-xl shadow">
+                <h4 class="font-semibold text-green-700 mb-1">🧑‍🤝‍🧑 Aksesibilitas</h4>
+                <p class="text-gray-600 text-sm">Terjangkau, aman, & mudah diakses.</p>
+            </div>
+        </div>
+
+        {{-- RIGHT IMAGE --}}
+        <div>
+            <img src="/images/bg.jpeg" class="w-full h-96 object-cover rounded-xl shadow-lg">
+        </div>
+
     </div>
-  </div>
 </section>
 
-<section class="py-8 mb-20">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Judul -->
-    <div class="text-center mb-12">
-      <h4 class="text-sm text-green-600 uppercase mb-2">Klien Kami</h4>
-      <h2 class="text-3xl sm:text-4xl font-bold text-green-800">Dipercaya Oleh</h2>
-      <p class="mt-2 text-gray-600 text-base">Kami telah bekerja sama dengan berbagai pihak dari instansi pemerintah, swasta, hingga komunitas pertanian.</p>
-    </div>
+{{-- PRODUCTS --}}
+<section class="py-20 bg-green-50">
+    <div class="max-w-7xl mx-auto px-6">
 
-    <!-- Logo Grid -->
-    @forelse ($client as $item)
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-8 items-center justify-items-center">
-      <!-- Logo 1 -->
-      <div class="grayscale hover:grayscale-0 transition duration-300">
-        <img src="{{ Storage::url($item->image) }}" alt="Client 1" class="h-12 object-contain">
-      </div>
-    </div>
-    @empty
-    <p>Data kosong</p>
-    @endforelse
+        <div class="text-center mb-12">
+            <h4 class="text-sm text-green-600 uppercase mb-2">Our Products</h4>
+            <h2 class="text-3xl font-bold text-green-800">Products You'll Love</h2>
+        </div>
 
-  </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-8">
+
+            @foreach ($products as $p)
+            <div class="bg-white p-6 rounded-xl shadow text-center">
+                <img src="{{ Storage::url($p->thumbnail) }}" class="rounded-lg h-32 w-full object-cover mb-3">
+                <h4 class="font-semibold text-green-700 mb-1">{{ $p->name }}</h4>
+                <a href="#" class="text-green-600 text-sm font-semibold hover:underline">Lihat Detail</a>
+            </div>
+            @endforeach
+
+        </div>
+
+    </div>
 </section>
-
 
 @endsection

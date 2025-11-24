@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Client;
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class TentangKamiController extends Controller
@@ -15,7 +16,11 @@ class TentangKamiController extends Controller
             ->paginate(10)
             ->withQueryString();
 
-        return view('pages.tentang-kami.tentang', compact('client'));
+        $products = Product::query()
+        ->latest()
+        ->get();
+
+        return view('pages.tentang-kami.tentang', compact('client','products'));
     }
 
     public function visiMisi()
